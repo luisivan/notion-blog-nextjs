@@ -1,10 +1,9 @@
 import Head from "next/head";
 import Link from "next/link";
 import { getDatabase, getCategory } from "../../lib/notion";
+import { databaseId } from "../index.js";
 import { Text } from "../posts/[slug].js";
 import styles from "../index.module.css";
-
-export const databaseId = process.env.NOTION_DATABASE_ID;
 
 export default function Category({ posts }) {
   return (
@@ -17,7 +16,7 @@ export default function Category({ posts }) {
       <main className={styles.container}>
         <h2 className={styles.heading}>All Posts</h2>
         <ol className={styles.posts}>
-          {posts.map((post) => {
+          {posts && posts.map((post) => {
             const date = new Date(post.properties.Date.date.start).toLocaleString(
               "en-US",
               {
