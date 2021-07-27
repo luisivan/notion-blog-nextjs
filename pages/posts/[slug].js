@@ -1,9 +1,9 @@
 import { Fragment } from "react";
 import Head from "next/head";
-import { getDatabase, getPage, getBlocks } from "../lib/notion";
+import { getDatabase, getPage, getBlocks } from "../../lib/notion";
 import Link from "next/link";
-import { databaseId } from "./index.js";
-import styles from "./post.module.css";
+import { databaseId } from "../index.js";
+import styles from "../post.module.css";
 
 export const Text = ({ text }) => {
   if (!text) {
@@ -111,6 +111,8 @@ export default function Post({ page, blocks }) {
         <h1 className={styles.name}>
           <Text text={page.properties.Name.title} />
         </h1>
+        <p>{page.properties.Date.date.start}</p>
+        <Link href={`/category/${page.properties.Category.select.name.toLowerCase()}`}>{page.properties.Category.select.name}</Link>
         <section>
           {blocks.map((block) => (
             <Fragment key={block.id}>{renderBlock(block)}</Fragment>
@@ -127,15 +129,15 @@ export default function Post({ page, blocks }) {
 export const getStaticPaths = async () => {
   const database = await getDatabase(databaseId);
   return {
-    paths: database.map((page) => ({ params: { id: page.id } })),
+    paths: database.map((page) => ({ params: { slug: page.properties.Slug.rich_text[0].plain_text } })),
     fallback: true,
   };
 };
 
 export const getStaticProps = async (context) => {
-  const { id } = context.params;
-  const page = await getPage(id);
-  const blocks = await getBlocks(id);
+  const { slug } = context.params;
+  const page = await getPage(databaseId, slug);
+  const blocks = await getBlocks(page.id);
 
   // Retrieve block children for nested blocks (one level deep), for example toggle blocks
   // https://developers.notion.com/docs/working-with-page-content#reading-nested-blocks
