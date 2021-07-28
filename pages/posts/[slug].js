@@ -1,35 +1,9 @@
-import { Fragment } from "react";
-import Head from "next/head";
 import { getDatabase, getPage, getBlocks } from "../../lib/notion";
-import Link from "next/link";
 import { databaseId } from "../index.js";
+import { Fragment } from "react";
+import { Text } from "../../components/notion";
+import Link from "next/link";
 import styles from "../post.module.css";
-
-export const Text = ({ text }) => {
-  if (!text) {
-    return null;
-  }
-  return text.map((value) => {
-    const {
-      annotations: { bold, code, color, italic, strikethrough, underline },
-      text,
-    } = value;
-    return (
-      <span
-        className={[
-          bold ? styles.bold : "",
-          code ? styles.code : "",
-          italic ? styles.italic : "",
-          strikethrough ? styles.strikethrough : "",
-          underline ? styles.underline : "",
-        ].join(" ")}
-        style={color !== "default" ? { color } : {}}
-      >
-        {text.link ? <a href={text.link.url}>{text.content}</a> : text.content}
-      </span>
-    );
-  });
-};
 
 const renderBlock = (block) => {
   const { type, id } = block;
@@ -101,28 +75,21 @@ export default function Post({ page, blocks }) {
     return <div />;
   }
   return (
-    <div>
-      <Head>
-        <title>{page.properties.Name.title[0].plain_text}</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <article className={styles.container}>
-        <h1 className={styles.name}>
-          <Text text={page.properties.Name.title} />
-        </h1>
-        <p>{page.properties.Date.date.start}</p>
-        <Link href={`/category/${page.properties.Category.select.name.toLowerCase()}`}>{page.properties.Category.select.name}</Link>
-        <section>
-          {blocks.map((block) => (
-            <Fragment key={block.id}>{renderBlock(block)}</Fragment>
-          ))}
-          <Link href="/">
-            <a className={styles.back}>← Go home</a>
-          </Link>
-        </section>
-      </article>
-    </div>
+    <article>
+      <h1 className={styles.name}>
+        <Text text={page.properties.Name.title} />
+      </h1>
+      <p>{page.properties.Date.date.start}</p>
+      <Link href={`/category/${page.properties.Category.select.name.toLowerCase()}`}>{page.properties.Category.select.name}</Link>
+      <section>
+        {blocks.map((block) => (
+          <Fragment key={block.id}>{renderBlock(block)}</Fragment>
+        ))}
+        <Link href="/">
+          <a className={styles.back}>← Go home</a>
+        </Link>
+      </section>
+    </article>
   );
 }
 
