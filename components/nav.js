@@ -34,8 +34,7 @@ export const Nav = () => (
     </div>
     <h1>Next.js blog powered by Notion API</h1>
     <p>
-      This is an example of a Next.js blog with data fetched with Notions
-      API.
+      This is an example of a Next.js blog with data fetched with Notions API.
     </p>
   </header>
-)
+);

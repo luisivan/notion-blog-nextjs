@@ -80,7 +80,11 @@ export default function Post({ page, blocks }) {
         <Text text={page.properties.Name.title} />
       </h1>
       <p>{page.properties.Date.date.start}</p>
-      <Link href={`/category/${page.properties.Category.select.name.toLowerCase()}`}>{page.properties.Category.select.name}</Link>
+      <Link
+        href={`/category/${page.properties.Category.select.name.toLowerCase()}`}
+      >
+        {page.properties.Category.select.name}
+      </Link>
       <section>
         {blocks.map((block) => (
           <Fragment key={block.id}>{renderBlock(block)}</Fragment>
@@ -96,7 +100,9 @@ export default function Post({ page, blocks }) {
 export const getStaticPaths = async () => {
   const database = await getDatabase(databaseId);
   return {
-    paths: database.map((page) => ({ params: { slug: page.properties.Slug.rich_text[0].plain_text } })),
+    paths: database.map((page) => ({
+      params: { slug: page.properties.Slug.rich_text[0].plain_text },
+    })),
     fallback: true,
   };
 };

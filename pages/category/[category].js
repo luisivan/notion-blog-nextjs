@@ -15,19 +15,22 @@ export default function Category({ posts }) {
 export const getStaticPaths = async () => {
   const database = await getDatabase(databaseId);
   return {
-    paths: database.map((page) => ({ params: { category: page.properties.Category.select.name.toLowerCase() } })),
+    paths: database.map((page) => ({
+      params: { category: page.properties.Category.select.name.toLowerCase() },
+    })),
     fallback: true,
   };
 };
 
 export const getStaticProps = async (context) => {
   const { category } = context.params;
-  const uppercaseCategory = category.charAt(0).toUpperCase() + category.slice(1);
+  const uppercaseCategory =
+    category.charAt(0).toUpperCase() + category.slice(1);
   const posts = await getCategory(databaseId, uppercaseCategory);
 
   return {
     props: {
-      posts
+      posts,
     },
     revalidate: 1,
   };
