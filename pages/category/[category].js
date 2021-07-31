@@ -1,11 +1,21 @@
+import Head from 'next/head'
 import { getDatabase, getCategory } from '../../lib/notion'
 import { PostList } from '../../components/list'
+import config from '../../config'
 import { databaseId } from '../index.js'
 import styles from '../index.module.css'
 
-export default function Category({ posts }) {
+export default function Category({ name, posts }) {
   return (
     <div>
+      <Head>
+        <title>
+          {name} | {config.name}
+        </title>
+        <meta property="og:title" content={name} />
+        <meta property="og:type" content="website" />
+      </Head>
+
       <h2 className={styles.heading}>All Posts</h2>
       <PostList posts={posts} />
     </div>
@@ -29,6 +39,7 @@ export const getStaticProps = async (context) => {
 
   return {
     props: {
+      name: uppercaseCategory,
       posts,
     },
     revalidate: 1,

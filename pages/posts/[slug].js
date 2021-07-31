@@ -1,7 +1,9 @@
+import Head from 'next/head'
 import Link from 'next/link'
 import { Fragment } from 'react'
 import { getDatabase, getPage, getBlocks } from '../../lib/notion'
 import { Text } from '../../components/notion'
+import config from '../../config'
 import { databaseId } from '../index.js'
 import styles from '../post.module.css'
 
@@ -74,8 +76,17 @@ export default function Post({ page, blocks }) {
   if (!page || !blocks) {
     return <div />
   }
+  const pageTitle = page.properties.Name.title[0].text.content
   return (
     <article>
+      <Head>
+        <title>
+          {pageTitle} | {config.name}
+        </title>
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:type" content="article" />
+      </Head>
+
       <h1 className={styles.name}>
         <Text text={page.properties.Name.title} />
       </h1>
