@@ -1,6 +1,6 @@
-import Head from "next/head";
-import { Nav } from "./nav";
-import styles from "../pages/index.module.css";
+import Head from 'next/head'
+import { Nav } from './nav'
+import styles from '../pages/index.module.css'
 
 export const Layout = ({ children }) => (
   <div>
@@ -12,4 +12,4 @@ export const Layout = ({ children }) => (
 
     <main className={styles.container}>{children}</main>
   </div>
-);
+)

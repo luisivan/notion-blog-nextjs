@@ -1,4 +1,4 @@
-import styles from "../pages/index.module.css";
+import styles from '../pages/index.module.css'
 
 export const Nav = () => (
   <header className={styles.header}>
@@ -37,4 +37,4 @@ export const Nav = () => (
       This is an example of a Next.js blog with data fetched with Notions API.
     </p>
   </header>
-);
+)
