@@ -16,7 +16,9 @@ export default function Home({ blocks, posts }) {
         <meta property="og:type" content="website" />
       </Head>
 
-      <Blocks blocks={blocks} />
+      <main className={styles.intro}>
+        <Blocks blocks={blocks} />
+      </main>
       <h2 className={styles.heading}>Featured posts</h2>
       <PostList posts={posts} />
     </div>
@@ -25,7 +27,7 @@ export default function Home({ blocks, posts }) {
 
 export const getStaticProps = async () => {
   const posts = await getFeatured(databaseId)
-  const page = await getPage(config.bioPageId)
+  const page = await getPage(config.introPageId)
   const blocks = await getBlocks(page.id)
 
   return {

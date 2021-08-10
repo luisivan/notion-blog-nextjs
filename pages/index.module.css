@@ -1,12 +1,12 @@
 .container {
-  padding: 0 20px;
-  max-width: 700px;
+  padding: 0 20px 40px 20px;
+  max-width: 680px;
   margin: 0 auto;
 }
 
 .header {
-  padding: 0 20px;
-  max-width: 700px;
+  padding: 20px 20px 0 20px;
+  max-width: 1024px;
   margin: 0 auto;
   margin-bottom: 50px;
   display: flex;
@@ -26,9 +26,14 @@
   line-height: 1.5;
 }*/
 
-.logo {
+.logo a {
   display: flex;
   align-items: center;
+}
+
+.logo img {
+  max-width: 48px;
+  margin-right: 1vw;
 }
 
 .logo h1 {
@@ -47,6 +52,11 @@
 .nav a {
   margin: 0 1vw;
   color: black;
+}
+
+.intro {
+  font-size: 2rem;
+  margin-bottom: 40px;
 }
 
 .heading {
