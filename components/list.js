@@ -19,7 +19,7 @@ export const PostList = ({ posts }) => (
             key={post.properties.Slug.rich_text[0].plain_text}
             className={styles.post}
           >
-            <h3 className={styles.postTitle}>
+            <h2 className={styles.postTitle}>
               <Link
                 href={`/posts/${post.properties.Slug.rich_text[0].plain_text}`}
               >
@@ -27,14 +27,9 @@ export const PostList = ({ posts }) => (
                   <Text text={post.properties.Name.title} />
                 </a>
               </Link>
-            </h3>
+            </h2>
 
             <p className={styles.postDescription}>{date}</p>
-            <Link
-              href={`/posts/${post.properties.Slug.rich_text[0].plain_text}`}
-            >
-              <a> Read post →</a>
-            </Link>
           </li>
         )
       })}
