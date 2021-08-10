@@ -1,12 +1,13 @@
 import Head from 'next/head'
-import { getFeatured } from '../lib/notion'
+import { getPage, getBlocks, getFeatured } from '../lib/notion'
 import { PostList } from '../components/list'
+import { Blocks } from '../components/notion'
 import config from '../config'
 import styles from './index.module.css'
 
 export const databaseId = process.env.NOTION_DATABASE_ID
 
-export default function Home({ posts }) {
+export default function Home({ blocks, posts }) {
   return (
     <div>
       <Head>
@@ -15,7 +16,8 @@ export default function Home({ posts }) {
         <meta property="og:type" content="website" />
       </Head>
 
-      <h2 className={styles.heading}>All Posts</h2>
+      <Blocks blocks={blocks} />
+      <h2 className={styles.heading}>Featured posts</h2>
       <PostList posts={posts} />
     </div>
   )
@@ -23,10 +25,13 @@ export default function Home({ posts }) {
 
 export const getStaticProps = async () => {
   const posts = await getFeatured(databaseId)
+  const page = await getPage(config.bioPageId)
+  const blocks = await getBlocks(page.id)
 
   return {
     props: {
       posts,
+      blocks,
     },
     revalidate: 1,
   }
