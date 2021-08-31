@@ -16,7 +16,7 @@ export default function Category({ name, posts }) {
         <meta property="og:type" content="website" />
       </Head>
 
-      <h2 className={styles.heading}>All Posts</h2>
+      <h2 className={styles.heading}>{name}</h2>
       <PostList posts={posts} />
     </div>
   )

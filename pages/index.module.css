@@ -82,7 +82,12 @@
   color: inherit;
 }
 
-.postDescription {
+.postSummary {
+  font-size: 1rem;
+  line-height: 1.625rem;
+}
+
+.postDate {
   margin-top: 0;
   margin-bottom: 12px;
   opacity: 0.65;

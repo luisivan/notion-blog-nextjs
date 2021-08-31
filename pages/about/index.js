@@ -2,7 +2,6 @@ import Head from 'next/head'
 import { getPage, getBlocks } from '../../lib/notion'
 import { Blocks } from '../../components/notion'
 import config from '../../config'
-import styles from '../index.module.css'
 
 export default function About({ blocks }) {
   return (

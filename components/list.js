@@ -28,8 +28,10 @@ export const PostList = ({ posts }) => (
                 </a>
               </Link>
             </h2>
-
-            <div className={styles.postDescription}>{date}</div>
+            <p className={styles.postSummary}>
+              <Text text={post.properties.Summary.rich_text} />
+            </p>
+            <div className={styles.postDate}>{date}</div>
           </li>
         )
       })}
