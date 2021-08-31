@@ -19,7 +19,7 @@ export default function Home({ blocks, posts }) {
       <main className={styles.intro}>
         <Blocks blocks={blocks} />
       </main>
-      <h2 className={styles.heading}>Featured posts</h2>
+      <h2 className={styles.heading}>Featured writing</h2>
       <PostList posts={posts} />
     </div>
   )

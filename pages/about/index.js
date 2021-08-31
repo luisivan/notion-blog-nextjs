@@ -6,16 +6,16 @@ import styles from '../index.module.css'
 
 export default function About({ blocks }) {
   return (
-    <div>
+    <article>
       <Head>
         <title>{config.name} | About</title>
         <meta property="og:title" content={config.name} />
         <meta property="og:type" content="website" />
       </Head>
 
-      <h2 className={styles.heading}>About</h2>
+      <h2 class="pageTitle">About</h2>
       <Blocks blocks={blocks} />
-    </div>
+    </article>
   )
 }
 

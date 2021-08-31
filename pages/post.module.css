@@ -5,15 +5,15 @@
   line-height: 1.5;
 }
 
-.container h1 {
-  font-size: 32px;
+.date {
+  opacity: 0.5;
+  font-size: 0.75rem;
+  margin-bottom: 8px;
 }
 
-.name {
-  font-size: 36px;
-}
-
-.back {
-  display: inline-block;
-  margin-bottom: 20px;
+.endLinks {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 2rem;
+  border-top: 1px solid #dedede;
 }

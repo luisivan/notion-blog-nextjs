@@ -8,6 +8,7 @@
   "importOrder": [
     "^.*/lib/.*$",
     "^.*/components/.*$",
+    "normalize.css/normalize.css",
     "^.*/pages/(?!.*.css$).*$",
     "^[./](?!.*.css$).*$",
     "^.*(css)$"

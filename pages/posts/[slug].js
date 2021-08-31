@@ -21,18 +21,22 @@ export default function Post({ page, blocks }) {
         <meta property="og:type" content="article" />
       </Head>
 
-      <h1 className={styles.name}>
+      <div className={styles.date}>{page.properties.Date.date.start}</div>
+      <h1 class="pageTitle">
         <Text text={page.properties.Name.title} />
       </h1>
-      <p>{page.properties.Date.date.start}</p>
-      <Link
-        href={`/category/${page.properties.Category.select.name.toLowerCase()}`}
-      >
-        {page.properties.Category.select.name}
-      </Link>
+
       <section>
         <Blocks blocks={blocks} />
       </section>
+      <div className={styles.endLinks}>
+        <Link
+          href={`/category/${page.properties.Category.select.name.toLowerCase()}`}
+        >
+          {page.properties.Category.select.name}
+        </Link>
+        <Link href="/blog">More posts →</Link>
+      </div>
     </article>
   )
 }

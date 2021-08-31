@@ -29,7 +29,7 @@ export const PostList = ({ posts }) => (
               </Link>
             </h2>
 
-            <p className={styles.postDescription}>{date}</p>
+            <div className={styles.postDescription}>{date}</div>
           </li>
         )
       })}

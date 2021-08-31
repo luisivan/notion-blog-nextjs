@@ -1,6 +1,6 @@
 .container {
   padding: 0 20px 40px 20px;
-  max-width: 680px;
+  max-width: 640px;
   margin: 0 auto;
 }
 
@@ -8,17 +8,9 @@
   padding: 20px 20px 0 20px;
   max-width: 1024px;
   margin: 0 auto;
-  margin-bottom: 50px;
+  margin-bottom: 48px;
   display: flex;
   justify-content: space-between;
-}
-
-.header a {
-  transition: opacity 0.25s ease;
-}
-
-.header a:hover {
-  opacity: 0.75;
 }
 
 /*.header p {
@@ -47,6 +39,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 .nav a {
@@ -56,17 +51,19 @@
 
 .intro {
   font-size: 2rem;
-  margin-bottom: 40px;
+  margin-bottom: 48px;
+
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 .heading {
-  margin-bottom: 20px;
-  padding-bottom: 20px;
   border-bottom: 1px solid #dedede;
   text-transform: uppercase;
   font-size: 15px;
   opacity: 0.6;
   letter-spacing: 0.5px;
+  padding-bottom: 0.5rem;
 }
 
 .posts {
@@ -82,6 +79,8 @@
 .postTitle {
   margin-bottom: 10px;
   font-size: 2rem;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 .postTitle a {
