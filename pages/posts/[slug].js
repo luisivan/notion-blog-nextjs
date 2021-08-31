@@ -37,6 +37,7 @@ export default function Post({ page, blocks }) {
         </Link>
         <Link href="/blog">More posts →</Link>
       </div>
+      <iframe className={styles.substack} src="https://thoughtcrime.substack.com/embed" frameborder="0" scrolling="no"></iframe>
     </article>
   )
 }
