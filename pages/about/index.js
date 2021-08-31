@@ -12,7 +12,7 @@ export default function About({ blocks }) {
         <meta property="og:type" content="website" />
       </Head>
 
-      <h2 class="pageTitle">About</h2>
+      <h2 className="pageTitle">About</h2>
       <Blocks blocks={blocks} />
     </article>
   )

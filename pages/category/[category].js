@@ -10,7 +10,7 @@ export default function Category({ name, posts }) {
     <div>
       <Head>
         <title>
-          {name} | {config.name}
+          {config.name} | {name}
         </title>
         <meta property="og:title" content={name} />
         <meta property="og:type" content="website" />

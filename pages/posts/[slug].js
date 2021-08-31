@@ -22,7 +22,7 @@ export default function Post({ page, blocks }) {
       </Head>
 
       <div className={styles.date}>{page.properties.Date.date.start}</div>
-      <h1 class="pageTitle">
+      <h1 className="pageTitle">
         <Text text={page.properties.Name.title} />
       </h1>
 
@@ -37,7 +37,7 @@ export default function Post({ page, blocks }) {
         </Link>
         <Link href="/blog">More posts →</Link>
       </div>
-      <iframe className={styles.substack} src="https://thoughtcrime.substack.com/embed" frameborder="0" scrolling="no"></iframe>
+      <iframe className={styles.substack} src="https://thoughtcrime.substack.com/embed" frameBorder="0" scrolling="no"></iframe>
     </article>
   )
 }
