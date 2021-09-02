@@ -9,6 +9,7 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: #222;
 }
 
 :root {
@@ -93,6 +94,7 @@ article .pageTitle {
 article h1.pageTitle {
   font-size: 3rem;
   line-height: 3.65rem;
+  margin-bottom: 2.5rem;
 }
 
 article h2.pageTitle {
