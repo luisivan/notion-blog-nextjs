@@ -1,5 +1,6 @@
 import { Fragment } from 'react'
 import ReactMarkdown from 'react-markdown/react-markdown.min'
+import Image from 'next/image'
 import { Tweet } from 'react-twitter-widgets'
 import styles from './Blocks.module.css'
 
@@ -102,7 +103,11 @@ const renderBlock = (block) => {
       return <p>{value.title}</p>
     case 'image':
       const url = (value.type === 'external') ? value.external.url : value.file.url
-      return <img src={url} />
+      return (
+        <div className={styles.imageWrapper} >
+          <Image src={`/api/imageproxy?url=${encodeURIComponent(url)}`} layout='fill' objectFit='contain' className={styles.image} />
+        </div>
+      )
     case 'embed':
       if (value.url.startsWith('https://twitter.com')) {
         const tweetId = /.*\/([^?]+)/.exec(value.url)[1]
