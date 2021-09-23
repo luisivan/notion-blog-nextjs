@@ -1,13 +1,13 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import { getDatabase, getPost } from '../../lib/notion'
-import { Text, Blocks } from '../../components/notion'
-import SubstackForm from '../../components/substack'
+import { getDatabase, getPost, formatPost } from '../../lib/notion'
+import { Blocks } from '../../components/notion'
+import { SubstackForm } from '../../components/substack'
 import config from '../../config'
 import styles from '../post.module.css'
 
-export default function Post({ post, blocks }) {
-  if (!post || !blocks) {
+export default function Post({ post }) {
+  if (!post) {
     return <div />
   }
   return (
@@ -23,9 +23,7 @@ export default function Post({ post, blocks }) {
       </Head>
 
       <div className={styles.date}>{post.date}</div>
-      <h1 className="pageTitle">
-        <Text text={post.title} />
-      </h1>
+      <h1 className="pageTitle">{post.title}</h1>
 
       <section>
         <Blocks blocks={post.blocks} />
@@ -45,7 +43,7 @@ export const getStaticPaths = async () => {
   const database = await getDatabase(config.databaseId)
   return {
     paths: database.map((post) => ({
-      params: { slug: post.slug },
+      params: { slug: post.properties.Slug.rich_text[0].plain_text },
     })),
     fallback: true,
   }

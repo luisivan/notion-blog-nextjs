@@ -2,11 +2,10 @@ import Image from 'next/image'
 import { Fragment } from 'react'
 import ReactMarkdown from 'react-markdown/react-markdown.min'
 import { Tweet } from 'react-twitter-widgets'
-import { getUrlFromImageBlock } from '../lib/notion'
 import styles from './Blocks.module.css'
 
 export const Text = ({ text }) => {
-  if (!text) {
+  if (!Array.isArray(text)) {
     return null
   }
   return text.map((value) => {
@@ -33,6 +32,12 @@ export const Text = ({ text }) => {
 
 const textToPlain = (block) => {
   return block.text.map((item) => item.text.content).join('')
+}
+
+export const getUrlFromImageBlock = (block) => {
+  return block.image.type === 'external'
+    ? block.image.external.url
+    : block.image.file.url
 }
 
 const renderBlock = (block) => {
@@ -120,6 +125,7 @@ const renderBlock = (block) => {
           type === 'unsupported' ? 'unsupported by Notion API' : type
         })`
       )
+      return ''
   }
 }
 
