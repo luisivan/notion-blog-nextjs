@@ -1,11 +1,9 @@
 import Head from 'next/head'
-import { getPage, getBlocks, getFeatured } from '../lib/notion'
+import { getPage, getBlocks, getFeatured, formatPosts } from '../lib/notion'
 import { PostList } from '../components/list'
 import { Blocks } from '../components/notion'
 import config from '../config'
 import styles from './index.module.css'
-
-export const databaseId = process.env.NOTION_DATABASE_ID
 
 export default function Home({ blocks, posts }) {
   return (
@@ -26,7 +24,8 @@ export default function Home({ blocks, posts }) {
 }
 
 export const getStaticProps = async () => {
-  const posts = await getFeatured(databaseId)
+  const rawPosts = await getFeatured(config.databaseId)
+  const posts = await formatPosts(rawPosts)
   const page = await getPage(config.introPageId)
   const blocks = await getBlocks(page.id)
 

@@ -1,4 +1,3 @@
-import { clearConfigCache } from 'prettier'
 import config from '../config'
 import styles from '../pages/index.module.css'
 

@@ -1,10 +1,8 @@
 import Head from 'next/head'
-import { getDatabase } from '../../lib/notion'
+import { getDatabase, formatPosts } from '../../lib/notion'
 import { PostList } from '../../components/list'
 import config from '../../config'
 import styles from '../index.module.css'
-
-export const databaseId = process.env.NOTION_DATABASE_ID
 
 export default function Blog({ posts }) {
   return (
@@ -22,7 +20,8 @@ export default function Blog({ posts }) {
 }
 
 export const getStaticProps = async () => {
-  const posts = await getDatabase(databaseId)
+  const rawPosts = await getDatabase(config.databaseId)
+  const posts = await formatPosts(rawPosts)
 
   return {
     props: {

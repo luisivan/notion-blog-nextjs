@@ -1,8 +1,7 @@
 import Head from 'next/head'
-import { getDatabase, getCategory } from '../../lib/notion'
+import { getDatabase, getCategory, formatPosts } from '../../lib/notion'
 import { PostList } from '../../components/list'
 import config from '../../config'
-import { databaseId } from '../index.js'
 import styles from '../index.module.css'
 
 export default function Category({ name, posts }) {
@@ -23,7 +22,7 @@ export default function Category({ name, posts }) {
 }
 
 export const getStaticPaths = async () => {
-  const database = await getDatabase(databaseId)
+  const database = await getDatabase(config.databaseId)
   return {
     paths: database.map((page) => ({
       params: { category: page.properties.Category.select.name.toLowerCase() },
@@ -35,7 +34,8 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context) => {
   const { category } = context.params
   const uppercaseCategory = category.charAt(0).toUpperCase() + category.slice(1)
-  const posts = await getCategory(databaseId, uppercaseCategory)
+  const rawPosts = await getCategory(config.databaseId, uppercaseCategory)
+  const posts = await formatPosts(rawPosts)
 
   return {
     props: {

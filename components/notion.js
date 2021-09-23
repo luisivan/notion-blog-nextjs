@@ -1,7 +1,8 @@
+import Image from 'next/image'
 import { Fragment } from 'react'
 import ReactMarkdown from 'react-markdown/react-markdown.min'
-import Image from 'next/image'
 import { Tweet } from 'react-twitter-widgets'
+import { getUrlFromImageBlock } from '../lib/notion'
 import styles from './Blocks.module.css'
 
 export const Text = ({ text }) => {
@@ -37,17 +38,11 @@ const textToPlain = (block) => {
 const renderBlock = (block) => {
   const { type, id } = block
   const value = block[type]
-  console.log(type)
-  console.log(value)
 
   switch (type) {
     case 'paragraph':
       if (value.text[0] && value.text[0].text.content.startsWith('!m ')) {
-        return (
-          <ReactMarkdown>
-            {textToPlain(value).slice(3)}
-          </ReactMarkdown>
-        )
+        return <ReactMarkdown>{textToPlain(value).slice(3)}</ReactMarkdown>
       }
       return (
         <p>
@@ -102,23 +97,29 @@ const renderBlock = (block) => {
     case 'child_page':
       return <p>{value.title}</p>
     case 'image':
-      const url = (value.type === 'external') ? value.external.url : value.file.url
       return (
-        <div className={styles.imageWrapper} >
-          <Image src={`/api/imageproxy?url=${encodeURIComponent(url)}`} layout='fill' objectFit='contain' className={styles.image} />
+        <div className={styles.imageWrapper}>
+          <Image
+            src={`/api/imageproxy?url=${encodeURIComponent(
+              getUrlFromImageBlock(block)
+            )}`}
+            layout="fill"
+            objectFit="contain"
+            className={styles.image}
+          />
         </div>
       )
     case 'embed':
       if (value.url.startsWith('https://twitter.com')) {
         const tweetId = /.*\/([^?]+)/.exec(value.url)[1]
-        return (
-          <Tweet tweetId={tweetId} />
-        )
+        return <Tweet tweetId={tweetId} />
       }
     default:
-      console.log(`❌ Unsupported block (${
-        type === 'unsupported' ? 'unsupported by Notion API' : type
-      })`)
+      console.log(
+        `❌ Unsupported block (${
+          type === 'unsupported' ? 'unsupported by Notion API' : type
+        })`
+      )
   }
 }
 

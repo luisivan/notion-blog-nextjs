@@ -1,52 +1,51 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import { getDatabase, getPost, getBlocks } from '../../lib/notion'
+import { getDatabase, getPost } from '../../lib/notion'
 import { Text, Blocks } from '../../components/notion'
+import SubstackForm from '../../components/substack'
 import config from '../../config'
-import { databaseId } from '../index.js'
 import styles from '../post.module.css'
 
-export default function Post({ page, blocks }) {
-  if (!page || !blocks) {
+export default function Post({ post, blocks }) {
+  if (!post || !blocks) {
     return <div />
   }
-  const pageTitle = page.properties.Name.title[0].text.content
   return (
     <article>
       <Head>
         <title>
-          {pageTitle} | {config.name}
+          {post.title} | {config.name}
         </title>
-        <meta property="og:title" content={pageTitle} />
+        <meta property="og:title" content={post.title} />
+        <meta property="og:description" content={post.summary} />
+        <meta property="og:image" content={post.image} />
         <meta property="og:type" content="article" />
       </Head>
 
-      <div className={styles.date}>{page.properties.Date.date.start}</div>
+      <div className={styles.date}>{post.date}</div>
       <h1 className="pageTitle">
-        <Text text={page.properties.Name.title} />
+        <Text text={post.title} />
       </h1>
 
       <section>
-        <Blocks blocks={blocks} />
+        <Blocks blocks={post.blocks} />
       </section>
       <div className={styles.endLinks}>
-        <Link
-          href={`/category/${page.properties.Category.select.name.toLowerCase()}`}
-        >
-          {page.properties.Category.select.name}
+        <Link href={`/category/${post.category.toLowerCase()}`}>
+          {post.category}
         </Link>
         <Link href="/blog">More posts →</Link>
       </div>
-      <iframe className={styles.substack} src="https://thoughtcrime.substack.com/embed" frameBorder="0" scrolling="no"></iframe>
+      {config.substackUsername ? <SubstackForm /> : ''}
     </article>
   )
 }
 
 export const getStaticPaths = async () => {
-  const database = await getDatabase(databaseId)
+  const database = await getDatabase(config.databaseId)
   return {
-    paths: database.map((page) => ({
-      params: { slug: page.properties.Slug.rich_text[0].plain_text },
+    paths: database.map((post) => ({
+      params: { slug: post.slug },
     })),
     fallback: true,
   }
@@ -54,13 +53,12 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (context) => {
   const { slug } = context.params
-  const page = await getPost(databaseId, slug)
-  const blocks = await getBlocks(page.id)
+  const rawPost = await getPost(config.databaseId, slug)
+  const post = await formatPost(rawPost, true)
 
   return {
     props: {
-      page,
-      blocks,
+      post,
     },
     revalidate: 1,
   }
