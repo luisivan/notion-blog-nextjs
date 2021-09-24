@@ -103,14 +103,17 @@ const renderBlock = (block) => {
     case 'child_page':
       return <p>{value.title}</p>
     case 'image':
+      const imageUrl = `/api/imageproxy?url=${encodeURIComponent(
+        getUrlFromImageBlock(block)
+      )}`
       return (
         <div className={styles.imageWrapper}>
           <Image
-            src={`/api/imageproxy?url=${encodeURIComponent(
-              getUrlFromImageBlock(block)
-            )}`}
+            src={imageUrl}
             layout="fill"
             objectFit="contain"
+            placeholder="blur"
+            blurDataURL={`/_next/image?url=${imageUrl}&w=48&q=1`}
             className={styles.image}
             alt=""
           />
