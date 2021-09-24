@@ -1,18 +1,22 @@
+import Image from 'next/image'
+import Link from 'next/link'
 import config from '../config'
 import styles from '../pages/index.module.css'
 
 export const Nav = () => (
   <header className={styles.header}>
     <div className={styles.logo}>
-      <a href="/">
-        <img src="/logo.jpg" />
-        <h1>{config.name}</h1>
-      </a>
+      <Link href="/" passHref>
+        <a>
+          <Image src="/logo.jpg" alt="" width="48" height="48" />
+          <h1>{config.name}</h1>
+        </a>
+      </Link>
     </div>
     <nav className={styles.nav}>
-      <a href="/blog">Blog</a>
-      <a href={`https://twitter.com/${config.twitter}`}>Twitter</a>
-      <a href="/about">About</a>
+      <Link href="/blog">Blog</Link>
+      <Link href={`https://twitter.com/${config.twitter}`}>Twitter</Link>
+      <Link href="/about">About</Link>
     </nav>
   </header>
 )

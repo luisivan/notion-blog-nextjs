@@ -18,16 +18,12 @@
   align-items: center;
 }
 
-.logo img {
-  max-width: 48px;
-  margin-right: 1vw;
-}
-
 .logo h1 {
   font-size: clamp(15px, 5vw, 24px);
   background: linear-gradient(120deg, #6435c9 -25%, #5d93ff 55%);
   background-clip: text;
   font-weight: 400;
+  margin-left: 1vw !important;
 }
 
 .nav {

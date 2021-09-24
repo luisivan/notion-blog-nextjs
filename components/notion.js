@@ -8,7 +8,7 @@ export const Text = ({ text }) => {
   if (!Array.isArray(text)) {
     return null
   }
-  return text.map((value) => {
+  return text.map((value, index) => {
     const {
       annotations: { bold, code, color, italic, strikethrough, underline },
       text,
@@ -23,6 +23,7 @@ export const Text = ({ text }) => {
           underline ? styles.underline : '',
         ].join(' ')}
         style={color !== 'default' ? { color } : {}}
+        key={index}
       >
         {text.link ? <a href={text.link.url}>{text.content}</a> : text.content}
       </span>
@@ -75,7 +76,7 @@ const renderBlock = (block) => {
     case 'bulleted_list_item':
     case 'numbered_list_item':
       return (
-        <li>
+        <li key={id}>
           <Text text={value.text} />
         </li>
       )
@@ -111,6 +112,7 @@ const renderBlock = (block) => {
             layout="fill"
             objectFit="contain"
             className={styles.image}
+            alt=""
           />
         </div>
       )
