@@ -35,12 +35,6 @@ const textToPlain = (block) => {
   return block.text.map((item) => item.text.content).join('')
 }
 
-export const getUrlFromImageBlock = (block) => {
-  return block.image.type === 'external'
-    ? block.image.external.url
-    : block.image.file.url
-}
-
 const renderBlock = (block) => {
   const { type, id } = block
   const value = block[type]
@@ -103,21 +97,8 @@ const renderBlock = (block) => {
     case 'child_page':
       return <p>{value.title}</p>
     case 'image':
-      const imageUrl = `/api/imageproxy?url=${encodeURIComponent(
-        getUrlFromImageBlock(block)
-      )}`
       return (
-        <div className={styles.imageWrapper}>
-          <Image
-            src={imageUrl}
-            layout="fill"
-            objectFit="contain"
-            placeholder="blur"
-            blurDataURL={`/_next/image?url=${imageUrl}&w=48&q=1`}
-            className={styles.image}
-            alt=""
-          />
-        </div>
+        <Image {...block.image} placeholder="blur" layout="responsive" alt="" />
       )
     case 'embed':
       if (value.url.startsWith('https://twitter.com')) {
