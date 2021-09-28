@@ -1,8 +1,16 @@
-This is a [Next.js](https://nextjs.org/) blog using [Notions Public API](https://developers.notion.com).
+This is a [Next.js](https://nextjs.org/) blog using [Notions Public API](https://developers.notion.com), based off [the original implementation by samuelkraft](https://samuelkraft.com/blog/building-a-notion-blog-with-public-api).
+
+I added support for the following:
+
+- Image blocks with lazy loading/blurry loading
+- Optimized tweet embeds
+- Support for featured posts
+- Support for categories
+- Custom Notion page as index page
+- Custom Notion page as about page
+- Adding Substack subscribe box
 
 **Demo:** [https://notion-blog-nextjs-coral.vercel.app](https://notion-blog-nextjs-coral.vercel.app)
-
-**How-it-works/Documentation:** [https://samuelkraft.com/blog/building-a-notion-blog-with-public-api](https://samuelkraft.com/blog/building-a-notion-blog-with-public-api)
 
 ## Getting Started
 
