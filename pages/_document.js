@@ -16,6 +16,12 @@ class BlogDocument extends Document {
             type="application/feed+json"
             href="/feed.json"
           />
+          <meta name="theme-color" content="#5D93FF" />
+          <script
+            data-respect-dnt
+            async
+            src="https://cdn.splitbee.io/sb.js"
+          ></script>
         </Head>
         <body>
           <Main />
