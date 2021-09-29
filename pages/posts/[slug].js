@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { getDatabase, getPost, formatPost } from '../../lib/notion'
 import { Blocks } from '../../components/notion'
-import { SubstackForm } from '../../components/substack'
+import { RevueForm } from '../../components/revue'
 import config from '../../config'
 import styles from '../post.module.css'
 
@@ -28,13 +28,15 @@ export default function Post({ post }) {
       <section>
         <Blocks blocks={post.blocks} />
       </section>
-      <div className={styles.endLinks}>
-        <Link href={`/category/${post.category.toLowerCase()}`}>
-          {post.category}
-        </Link>
-        <Link href="/blog">More posts →</Link>
+      <div className={styles.footer}>
+        {config.revueUsername ? <RevueForm /> : ''}
+        <div className={styles.footerLinks}>
+          <Link href={`/category/${post.category.toLowerCase()}`}>
+            {post.category}
+          </Link>
+          |<Link href="/blog">More posts →</Link>
+        </div>
       </div>
-      {config.substackUsername ? <SubstackForm /> : ''}
     </article>
   )
 }

@@ -9,7 +9,7 @@ I added support for the following:
 - Support for categories
 - Custom Notion page as index page
 - Custom Notion page as about page
-- Adding Substack subscribe box
+- Adding Revue subscribe box
 
 ## How to write blockquotes
 
