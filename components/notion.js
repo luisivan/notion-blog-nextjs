@@ -25,7 +25,13 @@ export const Text = ({ text }) => {
         style={color !== 'default' ? { color } : {}}
         key={index}
       >
-        {text.link ? <a href={text.link.url}>{text.content}</a> : text.content}
+        {text.link ? (
+          <a href={text.link.url} rel="noopener noreferrer" target="_blank">
+            {text.content}
+          </a>
+        ) : (
+          text.content
+        )}
       </span>
     )
   })
