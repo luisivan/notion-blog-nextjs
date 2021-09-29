@@ -3,12 +3,19 @@ This is a [Next.js](https://nextjs.org/) blog using [Notions Public API](https:/
 I added support for the following:
 
 - Image blocks with lazy loading/blurry loading
+- Support for blockquotes (using Markdown since official API doesn't support them)
 - Optimized tweet embeds
 - Support for featured posts
 - Support for categories
 - Custom Notion page as index page
 - Custom Notion page as about page
 - Adding Substack subscribe box
+
+## How to write blockquotes
+
+Since the official Notion API doesn't support quote blocks yet, we have to resort to using a bit of a hack.
+For quotes to be rendered, they need to follow this format:
+`!m > Text goes here`
 
 **Demo:** [https://notion-blog-nextjs-coral.vercel.app](https://notion-blog-nextjs-coral.vercel.app)
 

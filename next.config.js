@@ -12,5 +12,21 @@ module.exports = withTM(
 
       return config
     },
+    rewrites() {
+      return [
+        {
+          source: '/feed.xml',
+          destination: '/api/feed/rss2',
+        },
+        {
+          source: '/atom.xml',
+          destination: '/api/feed/atom1',
+        },
+        {
+          source: '/feed.json',
+          destination: '/api/feed/json1',
+        },
+      ]
+    },
   })
 )

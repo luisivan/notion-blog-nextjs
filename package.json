@@ -11,6 +11,7 @@
   "dependencies": {
     "@notionhq/client": "^0.1.8",
     "@plaiceholder/next": "^2.1.0",
+    "feed": "^4.2.2",
     "next": "^11.0.1",
     "normalize.css": "^8.0.1",
     "plaiceholder": "^2.0.1",
