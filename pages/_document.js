@@ -6,8 +6,15 @@ class BlogDocument extends Document {
       <Html>
         <Head>
           <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
             rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+          />
+          <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
+          <link rel="alternate" type="application/atom+xml" href="/atom.xml" />
+          <link
+            rel="alternate"
+            type="application/feed+json"
+            href="/feed.json"
           />
         </Head>
         <body>
