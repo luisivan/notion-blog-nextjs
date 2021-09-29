@@ -34,7 +34,7 @@ export default function Post({ post }) {
           <Link href={`/category/${post.category.toLowerCase()}`}>
             {post.category}
           </Link>
-          |<Link href="/blog">More posts →</Link>
+          <Link href="/blog">More posts →</Link>
         </div>
       </div>
     </article>
