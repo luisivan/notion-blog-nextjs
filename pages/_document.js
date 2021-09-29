@@ -9,7 +9,7 @@ class BlogDocument extends Document {
             rel="stylesheet"
             href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
           />
-          <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
+          <link rel="alternate" type="application/rss+xml" href="/rss.xml" />
           <link rel="alternate" type="application/atom+xml" href="/atom.xml" />
           <link
             rel="alternate"

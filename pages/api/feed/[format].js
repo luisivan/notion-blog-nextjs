@@ -1,6 +1,6 @@
 import { buildFeed } from '../../../lib/feed'
 
-export default async (req, res) => {
+export default async function feed(req, res) {
   const { format } = req.query
   const feed = await buildFeed()
 

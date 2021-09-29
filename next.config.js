@@ -15,7 +15,7 @@ module.exports = withTM(
     rewrites() {
       return [
         {
-          source: '/feed.xml',
+          source: '/rss.xml',
           destination: '/api/feed/rss2',
         },
         {
