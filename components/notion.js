@@ -1,7 +1,9 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import { Fragment } from 'react'
 import ReactMarkdown from 'react-markdown/react-markdown.min'
 import { Tweet } from 'react-twitter-widgets'
+import config from '../config'
 import styles from './Blocks.module.css'
 
 export const Text = ({ text }) => {
@@ -26,9 +28,13 @@ export const Text = ({ text }) => {
         key={index}
       >
         {text.link ? (
-          <a href={text.link.url} rel="noopener noreferrer" target="_blank">
-            {text.content}
-          </a>
+          text.link.url.startsWith(config.url) ? (
+            <Link href={text.link.url}>{text.content}</Link>
+          ) : (
+            <a href={text.link.url} rel="noopener noreferrer" target="_blank">
+              {text.content}
+            </a>
+          )
         ) : (
           text.content
         )}
