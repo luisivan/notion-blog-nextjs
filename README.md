@@ -1,6 +1,6 @@
 This is a [Next.js](https://nextjs.org/) blog using [Notions Public API](https://developers.notion.com), based off [the original implementation by samuelkraft](https://samuelkraft.com/blog/building-a-notion-blog-with-public-api).
 
-I added support for the following:
+## Features
 
 - Image blocks with lazy loading/blurry loading
 - Support for blockquotes (using Markdown since official API doesn't support them)
@@ -16,6 +16,10 @@ I added support for the following:
 Since the official Notion API doesn't support quote blocks yet, we have to resort to using a bit of a hack.
 For quotes to be rendered, they need to follow this format:
 `!m > Text goes here`
+
+## Caveats
+
+Currently the Notion API returns Amazon URLs that expire, meaning that the images uploaded via Notion only work for a few hours after build time. Ideally we would be able to download those at build time, but for now I have included a GitHub Workflow to trigger redeployment every hour, in my case to Vercel, to prevent image expiration.
 
 **Demo:** [https://notion-blog-nextjs-coral.vercel.app](https://notion-blog-nextjs-coral.vercel.app)
 
