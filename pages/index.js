@@ -10,6 +10,7 @@ export default function Home({ blocks, posts }) {
     <div>
       <Head>
         <title>{config.name}</title>
+        <meta name="description" content={config.description}>
         <meta property="og:title" content={config.name} />
         <meta property="og:type" content="website" />
       </Head>
