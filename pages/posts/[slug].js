@@ -42,7 +42,7 @@ export default function Post({ post }) {
 }
 
 export const getStaticPaths = async () => {
-  const database = await getDatabase(config.databaseId)
+  const database = await getDatabase(process.env.NOTION_DATABASE_ID)
   return {
     paths: database.map((post) => ({
       params: { slug: post.properties.Slug.rich_text[0].plain_text },
@@ -53,7 +53,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (context) => {
   const { slug } = context.params
-  const rawPost = await getPost(config.databaseId, slug)
+  const rawPost = await getPost(process.env.NOTION_DATABASE_ID, slug)
   const post = await formatPost(rawPost, true)
 
   return {

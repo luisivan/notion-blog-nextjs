@@ -22,7 +22,7 @@ export default function Category({ name, posts }) {
 }
 
 export const getStaticPaths = async () => {
-  const database = await getDatabase(config.databaseId)
+  const database = await getDatabase(process.env.NOTION_DATABASE_ID)
   return {
     paths: database.map((page) => ({
       params: { category: page.properties.Category.select.name.toLowerCase() },
@@ -34,7 +34,10 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context) => {
   const { category } = context.params
   const uppercaseCategory = category.charAt(0).toUpperCase() + category.slice(1)
-  const rawPosts = await getCategory(config.databaseId, uppercaseCategory)
+  const rawPosts = await getCategory(
+    process.env.NOTION_DATABASE_ID,
+    uppercaseCategory
+  )
   const posts = await formatPosts(rawPosts)
 
   return {

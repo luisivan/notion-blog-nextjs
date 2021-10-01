@@ -8,8 +8,6 @@ const config = {
   defaultPostImage: '/logo.jpg',
   revueUsername: 'luisc',
   url: 'https://luisc.xyz',
-  databaseId: process.env.NOTION_DATABASE_ID,
-  token: process.env.NOTION_TOKEN,
 }
 
 module.exports = config

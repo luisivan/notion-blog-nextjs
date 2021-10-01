@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import config from '../config'
+import logo from '../public/logo.jpg'
 import styles from '../pages/index.module.css'
 
 export const Nav = () => (
@@ -8,7 +9,7 @@ export const Nav = () => (
     <div className={styles.logo}>
       <Link href="/" passHref>
         <a>
-          <Image src="/logo.jpg" alt="" width="48" height="48" />
+          <Image src={logo} alt="" width="48" height="48" />
           <h1>{config.name}</h1>
         </a>
       </Link>

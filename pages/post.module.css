@@ -58,16 +58,33 @@
 
 .revue button {
   border: none;
-  background: rgba(0, 0, 0, 0.05);
-  color: black;
+  background: transparent;
   padding: 0 0.66rem;
   cursor: pointer;
-  filter: invert(55%) sepia(98%) saturate(2646%) hue-rotate(201deg)
-    brightness(103%) contrast(101%);
 }
 
 .revue button:hover {
   opacity: 0.75;
+}
+
+.revue button:active {
+  opacity: 0.5;
+}
+
+.revue button > div {
+  display: block !important;
+}
+
+.revue .subscribeIcon {
+  display: block;
+  filter: invert(55%) sepia(98%) saturate(2646%) hue-rotate(201deg)
+    brightness(103%) contrast(101%);
+}
+
+.revue .checkmarkIcon {
+  display: block;
+  filter: invert(62%) sepia(48%) saturate(635%) hue-rotate(68deg)
+    brightness(89%) contrast(86%);
 }
 
 @media (max-width: 480px) {

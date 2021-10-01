@@ -19,7 +19,7 @@ class BlogDocument extends Document {
           <meta name="theme-color" content="#5D93FF" />
           <script
             data-respect-dnt
-            async
+            defer
             src="https://cdn.splitbee.io/sb.js"
           ></script>
         </Head>

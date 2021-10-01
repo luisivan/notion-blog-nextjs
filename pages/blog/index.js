@@ -20,7 +20,7 @@ export default function Blog({ posts }) {
 }
 
 export const getStaticProps = async () => {
-  const rawPosts = await getDatabase(config.databaseId)
+  const rawPosts = await getDatabase(process.env.NOTION_DATABASE_ID)
   const posts = await formatPosts(rawPosts)
 
   return {

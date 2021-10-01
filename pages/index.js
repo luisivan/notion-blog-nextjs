@@ -25,7 +25,7 @@ export default function Home({ blocks, posts }) {
 }
 
 export const getStaticProps = async () => {
-  const rawPosts = await getFeatured(config.databaseId)
+  const rawPosts = await getFeatured(process.env.NOTION_DATABASE_ID)
   const posts = await formatPosts(rawPosts)
   const page = await getPage(config.introPageId)
   const blocks = await getBlocks(page.id)
