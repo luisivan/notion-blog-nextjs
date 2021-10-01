@@ -35,6 +35,7 @@ export const RevueForm = () => {
           width={18}
           height={18}
           className={!subscribed ? styles.subscribeIcon : styles.checkmarkIcon}
+          alt="Subscribe"
         />
       </button>
     </form>
