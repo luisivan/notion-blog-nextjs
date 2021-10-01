@@ -9,7 +9,8 @@ export const RevueForm = () => {
 
   const subscribe = async (e) => {
     e.preventDefault()
-    await fetch('/api/revue', {
+    await setSubscribed(true)
+    fetch('/api/revue', {
       body: JSON.stringify({
         email: e.target.email.value,
       }),
@@ -18,7 +19,6 @@ export const RevueForm = () => {
       },
       method: 'POST',
     })
-    setSubscribed(true)
   }
 
   return (
