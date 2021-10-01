@@ -1,6 +1,6 @@
-import Head from 'next/head'
 import Link from 'next/link'
 import { getDatabase, getPost, formatPost } from '../../lib/notion'
+import BlogHead from '../../components/head'
 import { Blocks } from '../../components/notion'
 import { RevueForm } from '../../components/revue'
 import config from '../../config'
@@ -12,15 +12,12 @@ export default function Post({ post }) {
   }
   return (
     <article>
-      <Head>
-        <title>
-          {post.title} | {config.name}
-        </title>
-        <meta property="og:title" content={post.title} />
-        <meta property="og:description" content={post.summary} />
-        <meta property="og:image" content={post.image} />
-        <meta property="og:type" content="article" />
-      </Head>
+      <BlogHead
+        title={`${post.title} | ${config.name}`}
+        description={post.summary}
+        image={post.image}
+        type="article"
+      />
 
       <div className={styles.date}>{post.date}</div>
       <h1 className="pageTitle">{post.title}</h1>

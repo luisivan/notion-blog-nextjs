@@ -1,5 +1,5 @@
-import Head from 'next/head'
 import { getPage, getBlocks, getFeatured, formatPosts } from '../lib/notion'
+import BlogHead from '../components/head'
 import { PostList } from '../components/list'
 import { Blocks } from '../components/notion'
 import config from '../config'
@@ -8,12 +8,12 @@ import styles from './index.module.css'
 export default function Home({ blocks, posts }) {
   return (
     <div>
-      <Head>
-        <title>{config.name}</title>
-        <meta name="description" content={config.description} />
-        <meta property="og:title" content={config.name} />
-        <meta property="og:type" content="website" />
-      </Head>
+      <BlogHead
+        title={config.name}
+        description={config.description}
+        image={config.defaultPostImage}
+        type="website"
+      />
 
       <main className={styles.intro}>
         <Blocks blocks={blocks} />

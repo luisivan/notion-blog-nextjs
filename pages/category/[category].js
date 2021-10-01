@@ -1,5 +1,5 @@
-import Head from 'next/head'
 import { getDatabase, getCategory, formatPosts } from '../../lib/notion'
+import BlogHead from '../../components/head'
 import { PostList } from '../../components/list'
 import config from '../../config'
 import styles from '../index.module.css'
@@ -7,13 +7,12 @@ import styles from '../index.module.css'
 export default function Category({ name, posts }) {
   return (
     <div>
-      <Head>
-        <title>
-          {config.name} | {name}
-        </title>
-        <meta property="og:title" content={name} />
-        <meta property="og:type" content="website" />
-      </Head>
+      <BlogHead
+        title={`${config.name} | ${name}`}
+        description={config.description}
+        image={config.defaultPostImage}
+        type="website"
+      />
 
       <h2 className={styles.heading}>{name}</h2>
       <PostList posts={posts} />

@@ -1,16 +1,17 @@
-import Head from 'next/head'
 import { getPage, getBlocks } from '../../lib/notion'
+import BlogHead from '../../components/head'
 import { Blocks } from '../../components/notion'
 import config from '../../config'
 
 export default function About({ blocks }) {
   return (
     <article>
-      <Head>
-        <title>{config.name} | About</title>
-        <meta property="og:title" content={config.name} />
-        <meta property="og:type" content="website" />
-      </Head>
+      <BlogHead
+        title={`${config.name} | About`}
+        description={config.description}
+        image={config.defaultPostImage}
+        type="website"
+      />
 
       <h2 className="pageTitle">About</h2>
       <Blocks blocks={blocks} />

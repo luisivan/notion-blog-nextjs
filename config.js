@@ -10,4 +10,6 @@ const config = {
   url: 'https://luisc.xyz',
 }
 
+config.defaultPostImage = new URL(config.defaultPostImage, config.url).href
+
 module.exports = config
