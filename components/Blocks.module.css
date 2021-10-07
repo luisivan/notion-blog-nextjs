@@ -21,5 +21,59 @@
   text-decoration: underline;
 }
 
+.image {
+  width: 100%;
+}
+
 .bookmark {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: row;
+  margin: 1rem 0;
+  color: black;
+}
+
+.bookmarkData {
+  flex: 2;
+  padding: 14px;
+}
+
+.bookmarkTitle {
+  display: block;
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bookmarkDescription {
+  display: block;
+  font-size: 12px;
+  line-height: 16px;
+  color: rgba(55, 53, 47, 0.6);
+  height: 32px;
+  overflow: hidden;
+}
+
+.bookmarkImage {
+  flex: 1;
+  background-size: cover;
+  background-position: center;
+}
+
+.bookmarkLink {
+  display: flex;
+  margin-top: 6px;
+}
+
+.bookmarkUrl {
+  font-size: 12px;
+  line-height: 16px;
+  color: rgb(55, 53, 47);
+  margin-left: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

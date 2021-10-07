@@ -29,7 +29,9 @@ a:hover {
   opacity: 0.75;
 }
 
-article h1, article h2, article h3 {
+article h1,
+article h2,
+article h3 {
   font-weight: 600;
 }
 
@@ -102,7 +104,8 @@ article h2.pageTitle {
   line-height: 2.65rem;
 }
 
-article p, article li span {
+article p,
+article li span {
   font-size: 1.125rem;
   line-height: 1.82813rem;
   margin-bottom: 1.82813rem;
@@ -121,10 +124,6 @@ article li:last-of-type {
 
 article li + :not(article li) {
   margin-top: calc(2 * var(--typographic-leading));
-}
-
-article img {
-  width: 100%;
 }
 
 article blockquote {

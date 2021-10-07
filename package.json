@@ -9,10 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@notionhq/client": "^0.1.8",
+    "@notionhq/client": "^0.4.2",
     "@plaiceholder/next": "^2.1.0",
     "feed": "^4.2.2",
-    "fetch-meta-tags": "^1.0.3",
+    "fetch-meta-tags": "^1.0.7",
     "next": "^11.0.1",
     "normalize.css": "^8.0.1",
     "plaiceholder": "^2.0.1",

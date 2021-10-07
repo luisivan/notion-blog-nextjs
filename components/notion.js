@@ -43,19 +43,12 @@ export const Text = ({ text }) => {
   })
 }
 
-const textToPlain = (block) => {
-  return block.text.map((item) => item.text.content).join('')
-}
-
 const renderBlock = (block) => {
   const { type, id } = block
   const value = block[type]
 
   switch (type) {
     case 'paragraph':
-      if (value.text[0] && value.text[0].text.content.startsWith('!m ')) {
-        return <blockquote>{textToPlain(value).slice(5)}</blockquote>
-      }
       return (
         <p>
           <Text text={value.text} />
@@ -109,7 +102,15 @@ const renderBlock = (block) => {
     case 'child_page':
       return <p>{value.title}</p>
     case 'image':
-      return <Image {...value} placeholder="blur" layout="responsive" alt="" />
+      return (
+        <Image
+          {...value}
+          placeholder="blur"
+          layout="responsive"
+          alt=""
+          className={styles.image}
+        />
+      )
     case 'embed':
       if (value.url.startsWith('https://twitter.com')) {
         const tweetId = /.*\/([^?]+)/.exec(value.url)[1]
@@ -117,6 +118,15 @@ const renderBlock = (block) => {
       }
     case 'bookmark':
       return <Bookmark {...value} />
+    case 'quote':
+      return (
+        <blockquote>
+          <Text text={value.text} />
+          {value.children?.map((block) => (
+            <Fragment key={block.id}>{renderBlock(block)}</Fragment>
+          ))}
+        </blockquote>
+      )
     default:
       console.log(
         `❌ Unsupported block (${
