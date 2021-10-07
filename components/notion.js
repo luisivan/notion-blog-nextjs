@@ -1,9 +1,9 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { Fragment } from 'react'
-import ReactMarkdown from 'react-markdown/react-markdown.min'
 import { Tweet } from 'react-twitter-widgets'
 import config from '../config'
+import { Bookmark } from './bookmark'
 import styles from './Blocks.module.css'
 
 export const Text = ({ text }) => {
@@ -54,7 +54,7 @@ const renderBlock = (block) => {
   switch (type) {
     case 'paragraph':
       if (value.text[0] && value.text[0].text.content.startsWith('!m ')) {
-        return <ReactMarkdown>{textToPlain(value).slice(3)}</ReactMarkdown>
+        return <blockquote>{textToPlain(value).slice(5)}</blockquote>
       }
       return (
         <p>
@@ -109,14 +109,14 @@ const renderBlock = (block) => {
     case 'child_page':
       return <p>{value.title}</p>
     case 'image':
-      return (
-        <Image {...block.image} placeholder="blur" layout="responsive" alt="" />
-      )
+      return <Image {...value} placeholder="blur" layout="responsive" alt="" />
     case 'embed':
       if (value.url.startsWith('https://twitter.com')) {
         const tweetId = /.*\/([^?]+)/.exec(value.url)[1]
         return <Tweet tweetId={tweetId} />
       }
+    case 'bookmark':
+      return <Bookmark {...value} />
     default:
       console.log(
         `❌ Unsupported block (${
