@@ -12,16 +12,7 @@ body {
   color: #222;
 }
 
-:root {
-  --typographic-base-font-size: 16px;
-  --typographic-small-font-size: 14px;
-  --typographic-base-line-height: 1.625;
-  --typographic-leading: calc(16 * var(--typographic-base-line-height) * 1px);
-}
-
 a {
-  color: #5d93ff;
-  text-decoration: none;
   transition: opacity 0.25s ease;
 }
 
@@ -33,42 +24,6 @@ article h1,
 article h2,
 article h3 {
   font-weight: 600;
-}
-
-article h1 {
-  font-size: 2.5rem;
-  line-height: calc(2 * var(--typographic-leading));
-  margin-top: calc(4 * var(--typographic-leading));
-  margin-bottom: calc(1 * var(--typographic-leading));
-}
-
-article h2 {
-  font-size: 1.6875rem;
-  line-height: calc(1.5 * var(--typographic-leading));
-  margin-top: calc(2 * var(--typographic-leading));
-  margin-bottom: calc(0.5 * var(--typographic-leading));
-}
-
-article h3 {
-  font-size: 1.375rem;
-  line-height: calc(1 * var(--typographic-leading));
-  margin-top: calc(2 * var(--typographic-leading));
-  margin-bottom: calc(0.5 * var(--typographic-leading));
-}
-
-article h4 {
-  font-size: 1.2rem;
-  line-height: calc(1 * var(--typographic-leading));
-  margin-top: calc(1.5 * var(--typographic-leading));
-  margin-bottom: calc(0.5 * var(--typographic-leading));
-}
-
-article h5,
-article h6 {
-  font-size: 1rem;
-  line-height: calc(1 * var(--typographic-leading));
-  margin-top: calc(2.5 * var(--typographic-leading));
-  margin-bottom: calc(0.5 * var(--typographic-leading));
 }
 
 article .pageTitle {
@@ -102,28 +57,6 @@ article h1.pageTitle {
 article h2.pageTitle {
   font-size: 2rem;
   line-height: 2.65rem;
-}
-
-article p,
-article li span {
-  font-size: 1.125rem;
-  line-height: 1.82813rem;
-  margin-bottom: 1.82813rem;
-}
-
-article li {
-  padding: 0 5px;
-  margin-bottom: 10px;
-  list-style: square;
-  padding-left: 20px;
-}
-
-article li:last-of-type {
-  margin-bottom: calc(1 * var(--typographic-leading));
-}
-
-article li + :not(article li) {
-  margin-top: calc(2 * var(--typographic-leading));
 }
 
 article blockquote {

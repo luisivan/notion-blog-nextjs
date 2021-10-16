@@ -5,19 +5,23 @@ import logo from '../public/logo.jpg'
 import styles from '../pages/index.module.css'
 
 export const Nav = () => (
-  <header className={styles.header}>
-    <div className={styles.logo}>
-      <Link href="/" passHref>
-        <a>
-          <Image src={logo} alt="" width="48" height="48" />
-          <h1>{config.name}</h1>
-        </a>
+  <header className="container mx-auto max-w-screen-lg flex justify-between py-5 font-display">
+    <Link href="/" passHref>
+      <a className="flex items-center">
+        <Image src={logo} alt="" width="48" height="48" />
+        <h1 className="text-xl ml-4 bg-clip-text">{config.name}</h1>
+      </a>
+    </Link>
+    <nav className="flex justify-between items-center">
+      <Link href="/blog">
+        <a className="mx-4">Blog</a>
       </Link>
-    </div>
-    <nav className={styles.nav}>
-      <Link href="/blog">Blog</Link>
-      <Link href={`https://twitter.com/${config.twitter}`}>Twitter</Link>
-      <Link href="/about">About</Link>
+      <Link href={`https://twitter.com/${config.twitter}`}>
+        <a className="mx-4">Twitter</a>
+      </Link>
+      <Link href="/about">
+        <a className="mx-4">About</a>
+      </Link>
     </nav>
   </header>
 )

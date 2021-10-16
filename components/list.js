@@ -6,12 +6,12 @@ export const PostList = ({ posts }) => (
     {posts &&
       posts.map((post) => {
         return (
-          <li key={post.slug} className={styles.post}>
-            <h2 className={styles.postTitle}>
+          <li key={post.slug} className="mb-8">
+            <h2 className="text-3xl font-display font-bold mt-6 mb-4">
               <Link href={`/posts/${post.slug}`}>{post.title}</Link>
             </h2>
-            <p className={styles.postSummary}>{post.summary}</p>
-            <div className={styles.postDate}>{post.date}</div>
+            <p className="text-base">{post.summary}</p>
+            <div className="text-base my-2 opacity-70">{post.date}</div>
           </li>
         )
       })}

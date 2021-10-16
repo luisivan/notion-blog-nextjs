@@ -11,20 +11,22 @@ export default function Post({ post }) {
     return <div />
   }
   return (
-    <article>
-      <BlogHead
-        title={`${post.title} | ${config.name}`}
-        description={post.summary}
-        image={post.image}
-        type="article"
-      />
+    <div>
+      <article className="prose prose-lg prose-blue">
+        <BlogHead
+          title={`${post.title} | ${config.name}`}
+          description={post.summary}
+          image={post.image}
+          type="article"
+        />
 
-      <div className={styles.date}>{post.date}</div>
-      <h1 className="pageTitle">{post.title}</h1>
+        <div className={styles.date}>{post.date}</div>
+        <h1 className="pageTitle">{post.title}</h1>
 
-      <section>
-        <Blocks blocks={post.blocks} />
-      </section>
+        <section>
+          <Blocks blocks={post.blocks} />
+        </section>
+      </article>
       <div className={styles.footer}>
         {config.revueUsername ? <RevueForm /> : ''}
         <div className={styles.footerLinks}>
@@ -34,7 +36,7 @@ export default function Post({ post }) {
           <Link href="/blog">More posts →</Link>
         </div>
       </div>
-    </article>
+    </div>
   )
 }
 

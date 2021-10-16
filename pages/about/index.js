@@ -5,7 +5,7 @@ import config from '../../config'
 
 export default function About({ blocks }) {
   return (
-    <article>
+    <article className="prose prose-lg prose-blue">
       <BlogHead
         title={`${config.name} | About`}
         description={config.description}

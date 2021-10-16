@@ -15,10 +15,12 @@ export default function Home({ blocks, posts }) {
         type="website"
       />
 
-      <main className={styles.intro}>
+      <main className="prose prose-2xl font-display">
         <Blocks blocks={blocks} />
       </main>
-      <h2 className={styles.heading}>Featured writing</h2>
+      <h2 className="text-base text-gray-500 font-bold uppercase pb-1 border-b border-gray-60 mt-8">
+        Featured writing
+      </h2>
       <PostList posts={posts} />
     </div>
   )

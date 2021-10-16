@@ -11,11 +11,14 @@
   "dependencies": {
     "@notionhq/client": "^0.4.2",
     "@plaiceholder/next": "^2.1.0",
+    "@tailwindcss/typography": "^0.4.1",
+    "autoprefixer": "^10.3.7",
     "feed": "^4.2.2",
     "fetch-meta-tags": "^1.0.7",
     "next": "^11.0.1",
     "normalize.css": "^8.0.1",
     "plaiceholder": "^2.0.1",
+    "postcss": "^8.3.9",
     "react": "17.x",
     "react-dom": "17.x",
     "react-twitter-widgets": "^1.10.0",
@@ -27,6 +30,7 @@
     "eslint-config-next": "^11.0.1",
     "eslint-config-prettier": "^8.3.0",
     "next-transpile-modules": "^8.0.0",
-    "prettier": "2.3.2"
+    "prettier": "2.3.2",
+    "tailwindcss": "^2.2.17"
   }
 }
