@@ -108,7 +108,7 @@ const renderBlock = (block) => {
           placeholder="blur"
           layout="responsive"
           alt=""
-          className={styles.image}
+          className="w-full"
         />
       )
     case 'embed':
@@ -116,8 +116,8 @@ const renderBlock = (block) => {
         const tweetId = /.*\/([^?]+)/.exec(value.url)[1]
         return <Tweet tweetId={tweetId} />
       }
-    case 'bookmark':
-      return <Bookmark {...value} />
+    /*case 'bookmark':
+      return <Bookmark {...value} />*/
     case 'quote':
       return (
         <blockquote>

@@ -1502,6 +1502,11 @@ elliptic@^6.5.3:
     minimalistic-assert "^1.0.1"
     minimalistic-crypto-utils "^1.0.1"
 
+emitter-component@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/emitter-component/-/emitter-component-1.1.1.tgz#065e2dbed6959bf470679edabeaf7981d1003ab6"
+  integrity sha1-Bl4tvtaVm/RwZ57avq95gdEAOrY=
+
 emoji-regex@^8.0.0:
   version "8.0.0"
   resolved "https://registry.yarnpkg.com/emoji-regex/-/emoji-regex-8.0.0.tgz#e818fd69ce5ccfcb404594f842963bf53164cc37"
@@ -1923,13 +1928,13 @@ fetch-blob@^3.1.2:
   dependencies:
     web-streams-polyfill "^3.0.3"
 
-fetch-meta-tags@^1.0.7:
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/fetch-meta-tags/-/fetch-meta-tags-1.0.7.tgz#7d68535c415e3728fd68d2b6675a8357c633cdbd"
-  integrity sha512-lYyqO6FqpKGO97FvCgXz9j2V4sMNMrGrfW2gXRVsDAhSs/xDfzoA7+MgLZSlIShUyQPojsmu3hdoi3q+48SrfQ==
+fetch-meta-tags@^1.0.10:
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/fetch-meta-tags/-/fetch-meta-tags-1.0.10.tgz#4330736198fbdecd19f00b19fcc39c1b35988ead"
+  integrity sha512-4G/2rXugApTWb3X7d1nANInnvPHExE8WcAJ1KJAE20Vtdp/IsQprXciPNRajsXTF+ZiOFnqeqi6tO/dGVKwTmQ==
   dependencies:
     node-fetch "^3.0.0"
-    node-html-parser "^4.1.5"
+    node-html-parser "^5.0.0"
 
 file-entry-cache@^6.0.1:
   version "6.0.1"
@@ -3005,10 +3010,10 @@ node-html-parser@1.4.9:
   dependencies:
     he "1.2.0"
 
-node-html-parser@^4.1.5:
-  version "4.1.5"
-  resolved "https://registry.yarnpkg.com/node-html-parser/-/node-html-parser-4.1.5.tgz#e3ff5b39a098e70de3629c9c79c4e29a3fa5f062"
-  integrity sha512-NLgqUXtftqnBqIjlRjYSaApaqE7TTxfTiH4VqKCjdUJKFOtUzRwney83EHz2qYc0XoxXAkYdmLjENCuZHvsIFg==
+node-html-parser@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/node-html-parser/-/node-html-parser-5.0.0.tgz#a398d6d27459346c517dc1b1e3dd779e12d685c3"
+  integrity sha512-TTcYevvxqIyRfc1Y/3O6EwzmPFmN9fykfdP3DewtDaVMzft4HFfs21ogw5LGDYhieIq8QBFG+PSBNd5x3n0WZQ==
   dependencies:
     css-select "^4.1.3"
     he "1.2.0"
@@ -4088,6 +4093,13 @@ stream-parser@^0.3.1:
   integrity sha1-FhhUhpRCACGhGC/wrxkRwSl2F3M=
   dependencies:
     debug "2"
+
+stream@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/stream/-/stream-0.0.2.tgz#7f5363f057f6592c5595f00bc80a27f5cec1f0ef"
+  integrity sha1-f1Nj8Ff2WSxVlfALyAon9c7B8O8=
+  dependencies:
+    emitter-component "^1.1.1"
 
 string-hash@1.1.3:
   version "1.1.3"
