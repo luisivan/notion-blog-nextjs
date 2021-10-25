@@ -11,7 +11,7 @@ export default function Post({ post }) {
   }
   return (
     <div>
-      <article className="prose prose-lg prose-blue">
+      <article>
         <BlogHead
           title={`${post.title} | ${config.name}`}
           description={post.summary}
@@ -19,10 +19,12 @@ export default function Post({ post }) {
           type="article"
         />
 
-        <div className="text-xs text-gray-500 mb-2">{post.date}</div>
-        <h1 className="pageTitle">{post.title}</h1>
+        <div className="text-xs text-gray-500">{post.date}</div>
+        <h1 className="text-5xl font-semibold font-display leading-snug mb-4 text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-400">
+          {post.title}
+        </h1>
 
-        <section>
+        <section className="prose prose-lg prose-blue">
           <Blocks blocks={post.blocks} />
         </section>
       </article>

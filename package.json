@@ -16,7 +16,6 @@
     "feed": "^4.2.2",
     "fetch-meta-tags": "^1.0.10",
     "next": "^11.0.1",
-    "normalize.css": "^8.0.1",
     "plaiceholder": "^2.0.1",
     "postcss": "^8.3.9",
     "react": "17.x",

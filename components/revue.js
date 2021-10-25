@@ -2,7 +2,7 @@ import Image from 'next/image'
 import React, { useState } from 'react'
 import checkmarkIcon from '../public/checkmark.svg'
 import subscribeIcon from '../public/subscribe.svg'
-import styles from '../pages/post.module.css'
+import styles from './Revue.module.css'
 
 export const RevueForm = () => {
   const [subscribed, setSubscribed] = useState(false)
@@ -38,7 +38,7 @@ export const RevueForm = () => {
         value="Subscribe"
         name="member[subscribe]"
         id="member_submit"
-        className="border-0 bg-transparent pt-1.5 pb-0.5 pr-2 cursor-pointer hover:opacity-75 active:opacity-50"
+        className="border-0 bg-transparent pt-1.5 pb-0.5 pr-2 cursor-pointer hover:opacity-75 active:opacity-50 transition-opacity duration-300"
       >
         <Image
           src={!subscribed ? subscribeIcon : checkmarkIcon}

@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import styles from '../pages/index.module.css'
 
 export const PostList = ({ posts }) => (
   <ol className={styles.posts}>

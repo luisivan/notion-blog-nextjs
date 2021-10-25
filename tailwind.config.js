@@ -11,6 +11,11 @@ module.exports = {
               fontWeight: 400,
               textDecoration: 'none',
             },
+            blockquote: {
+              fontWeight: 400,
+              borderColor: '#6435c9',
+              transform: 'translateX(-1.25rem)',
+            },
           },
         },
       },

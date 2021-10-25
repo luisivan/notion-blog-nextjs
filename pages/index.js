@@ -3,7 +3,6 @@ import BlogHead from '../components/head'
 import { PostList } from '../components/list'
 import { Blocks } from '../components/notion'
 import config from '../config'
-import styles from './index.module.css'
 
 export default function Home({ blocks, posts }) {
   return (

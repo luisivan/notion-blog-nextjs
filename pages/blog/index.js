@@ -2,7 +2,6 @@ import { getDatabase, formatPosts } from '../../lib/notion'
 import BlogHead from '../../components/head'
 import { PostList } from '../../components/list'
 import config from '../../config'
-import styles from '../index.module.css'
 
 export default function Blog({ posts }) {
   return (

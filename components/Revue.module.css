@@ -1,0 +1,11 @@
+.subscribeIcon {
+  display: block;
+  filter: invert(55%) sepia(98%) saturate(2646%) hue-rotate(201deg)
+    brightness(103%) contrast(101%);
+}
+
+.checkmarkIcon {
+  display: block;
+  filter: invert(62%) sepia(48%) saturate(635%) hue-rotate(68deg)
+    brightness(89%) contrast(86%);
+}

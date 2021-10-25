@@ -4,7 +4,6 @@ import { Fragment } from 'react'
 import { Tweet } from 'react-twitter-widgets'
 import config from '../config'
 import { Bookmark } from './bookmark'
-import styles from './Blocks.module.css'
 
 export const Text = ({ text }) => {
   if (!Array.isArray(text)) {
@@ -18,11 +17,11 @@ export const Text = ({ text }) => {
     return (
       <span
         className={[
-          bold ? styles.bold : '',
-          code ? styles.code : '',
-          italic ? styles.italic : '',
-          strikethrough ? styles.strikethrough : '',
-          underline ? styles.underline : '',
+          bold ? 'font-semibold' : '',
+          code ? 'font-mono' : '',
+          italic ? 'italic' : '',
+          strikethrough ? 'line-through' : '',
+          underline ? 'underline' : '',
         ].join(' ')}
         style={color !== 'default' ? { color } : {}}
         key={index}

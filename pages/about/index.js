@@ -5,7 +5,7 @@ import config from '../../config'
 
 export default function About({ blocks }) {
   return (
-    <article className="prose prose-lg prose-blue">
+    <article>
       <BlogHead
         title={`${config.name} | About`}
         description={config.description}
@@ -13,8 +13,12 @@ export default function About({ blocks }) {
         type="website"
       />
 
-      <h2 className="pageTitle">About</h2>
-      <Blocks blocks={blocks} />
+      <h2 className="text-4xl font-semibold font-display mb-8 text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-400">
+        About
+      </h2>
+      <div className="prose prose-lg prose-blue">
+        <Blocks blocks={blocks} />
+      </div>
     </article>
   )
 }

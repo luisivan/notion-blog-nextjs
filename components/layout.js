@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import config from '../config'
 import { Nav } from './nav'
-import styles from '../pages/index.module.css'
 
 export const Layout = ({ children }) => (
   <div className="px-4">
