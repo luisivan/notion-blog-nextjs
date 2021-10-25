@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 export const PostList = ({ posts }) => (
-  <ol className={styles.posts}>
+  <ol>
     {posts &&
       posts.map((post) => {
         return (
