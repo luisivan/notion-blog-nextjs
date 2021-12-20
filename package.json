@@ -22,6 +22,7 @@
     "react-dom": "17.x",
     "react-twitter-widgets": "^1.10.0",
     "sharp": "^0.29.1",
+    "sitemap": "^7.0.0",
     "stream": "^0.0.2"
   },
   "devDependencies": {

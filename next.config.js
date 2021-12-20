@@ -26,6 +26,14 @@ module.exports = withTM(
           source: '/feed.json',
           destination: '/api/feed/json1',
         },
+        {
+          source: '/sitemap.xml',
+          destination: '/api/sitemap',
+        },
+        {
+          source: '/robots.txt',
+          destination: '/api/robots',
+        },
       ]
     },
     images: {
