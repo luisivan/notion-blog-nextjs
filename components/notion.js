@@ -115,8 +115,8 @@ const renderBlock = (block) => {
         const tweetId = /.*\/([^?]+)/.exec(value.url)[1]
         return <Tweet tweetId={tweetId} />
       }
-    /*case 'bookmark':
-      return <Bookmark {...value} />*/
+    case 'bookmark':
+      return <Bookmark {...value} />
     case 'quote':
       return (
         <blockquote>
