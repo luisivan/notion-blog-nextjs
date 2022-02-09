@@ -11,7 +11,7 @@ This is a [Next.js](https://nextjs.org/) blog using [Notions Public API](https:/
 - Custom Notion page as about page
 - Adding Revue subscribe box
 
-**[Demo](https://luisc.xyz)**
+## [Demo](https://luisc.xyz)
 
 ## Getting Started
 
