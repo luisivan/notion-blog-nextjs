@@ -6,6 +6,7 @@ import { RevueForm } from '../../components/revue'
 import config from '../../config'
 
 export default function Post({ post }) {
+  console.log(post)
   if (!post) {
     return <div />
   }
