@@ -9,7 +9,7 @@ This is a [Next.js](https://nextjs.org/) blog using [Notions Public API](https:/
 - Support for categories
 - Custom Notion page as index page
 - Custom Notion page as about page
-- Adding Revue subscribe box
+- Substack subscribe box
 
 ## [Demo](https://luisc.xyz)
 

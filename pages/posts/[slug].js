@@ -1,12 +1,26 @@
 import Link from 'next/link'
+import Script from 'next/script'
 import { getDatabase, getPost, formatPost } from '../../lib/notion'
 import BlogHead from '../../components/head'
 import { Blocks } from '../../components/notion'
-import { RevueForm } from '../../components/revue'
 import config from '../../config'
 
 export default function Post({ post }) {
   console.log(post)
+  if (typeof window !== 'undefined') {
+    window.CustomSubstackWidget = {
+      substackUrl: `${config.substackUsername}.substack.com`,
+      placeholder: 'example@gmail.com',
+      buttonText: 'Subscribe',
+      theme: 'custom',
+      colors: {
+        primary: '#60A5FA',
+        input: '#FFFFFF',
+        email: '#60A5FA',
+        text: '#FFFFFF',
+      },
+    }
+  }
   if (!post) {
     return <div />
   }
@@ -30,7 +44,14 @@ export default function Post({ post }) {
         </section>
       </article>
       <div className="flex justify-between pt-8 gap-x-4 border-t border-gray-200 flex-col-reverse sm:flex-row">
-        {config.revueUsername ? <RevueForm /> : ''}
+        {config.substackUsername ? (
+          <>
+            <div id="custom-substack-embed"></div>
+            <Script src="https://substackapi.com/widget.js" />
+          </>
+        ) : (
+          ''
+        )}
         <div className="flex flex-grow sm:justify-end justify-between mb-8 sm:mb-0 flex-wrap items-center">
           <Link href={`/category/${post.category.toLowerCase()}`}>
             <a className="sm:border-r border-r-0 border-gray-300 pr-4 text-blue-400">
