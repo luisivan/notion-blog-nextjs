@@ -1,7 +1,6 @@
-const withTM = require('next-transpile-modules')(['fetch-meta-tags'])
 const { withPlaiceholder } = require('@plaiceholder/next')
 
-module.exports = withTM(
+module.exports = 
   withPlaiceholder({
     webpack: (config, { isServer }) => {
       if (!isServer) {
@@ -40,5 +39,5 @@ module.exports = withTM(
       domains: ['s3.us-west-2.amazonaws.com'],
     },
     experimental: { esmExternals: true },
+    transpilePackages: ['fetch-meta-tags'],
   })
-)

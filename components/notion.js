@@ -105,7 +105,7 @@ const renderBlock = (block) => {
         <Image
           {...value}
           placeholder="blur"
-          layout="responsive"
+          sizes="100vw" style={{ width: '100%', height: 'auto' }}
           alt=""
           className="w-full"
         />

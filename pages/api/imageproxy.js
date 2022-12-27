@@ -1,4 +1,5 @@
 import { getBlock } from '../../lib/notion'
+import {Readable} from 'stream';
 
 export default async function proxy(req, res) {
   let url = ''
@@ -9,6 +10,5 @@ export default async function proxy(req, res) {
     url = block.image.file.url
   }
   const result = await fetch(url)
-  const body = await result.body
-  body.pipe(res)
+  Readable.fromWeb(result.body).pipe(res)
 }
