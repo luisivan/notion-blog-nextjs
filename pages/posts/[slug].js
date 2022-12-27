@@ -9,6 +9,7 @@ export default function Post({ post }) {
   if (!post) {
     return <div />
   }
+  console.log(config.substackUsername)
   return (
     <div>
       <article>
