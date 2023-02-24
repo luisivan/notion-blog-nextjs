@@ -6,7 +6,7 @@ export const PostList = ({ posts }) => (
       posts.map((post) => {
         return (
           <li key={post.slug} className="mb-8">
-            <h2 className="text-3xl font-display font-bold mt-6 mb-4">
+            <h2 className="text-3xl font-display font-bold mt-6 mb-2">
               <Link href={`/posts/${post.slug}`}>{post.title}</Link>
             </h2>
             <p className="text-base">{post.summary}</p>
