@@ -4,19 +4,18 @@ import config from '../config'
 import logo from '../public/logo.jpg'
 
 export const Nav = () => (
-  <header className="container mx-auto max-w-screen-lg flex justify-between py-5 font-display text-sm md:text-base">
+  <header className="container mx-auto max-w-screen-sm flex justify-between  block lowercase">
     <Link href="/" className="flex items-center">
-        <Image src={logo} alt="" width="48" height="48" />
-        <h1 className="text-sm md:text-xl ml-4 bg-clip-text">{config.name}</h1>
+        <h1 className="text-sm md:text-xl bg-clip-text">{config.emoji} {config.name}</h1>
     </Link>
-    <nav className="flex justify-between items-center">
-      <Link href="/blog" className="mx-4">
+    <nav className="flex justify-between items-center gap-6">
+      <Link href="/blog">
         Blog
       </Link>
-      <Link href={`https://twitter.com/${config.twitter}`} className="mx-4">
+      <Link href={`https://twitter.com/${config.twitter}`}>
         Twitter
       </Link>
-      <Link href="/about" className="mx-4">
+      <Link href="/about">
         About
       </Link>
     </nav>

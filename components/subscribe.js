@@ -17,7 +17,7 @@ export const Subscribe = ({ substackUsername }) => {
   }
   return (
     <>
-      <div id="custom-substack-embed" className="text-base max-w-sm"></div>
+      <div id="custom-substack-embed" className="text-base max-w-sm h-8"></div>
       <Script src="https://substackapi.com/widget.js" />
     </>
   )

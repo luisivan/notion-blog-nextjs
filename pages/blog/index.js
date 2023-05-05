@@ -5,7 +5,7 @@ import config from '../../config'
 
 export default function Blog({ posts }) {
   return (
-    <div>
+    <div className="block">
       <BlogHead
         title={`${config.name} | Blog`}
         description={config.description}
@@ -13,7 +13,7 @@ export default function Blog({ posts }) {
         type="website"
       />
 
-      <h2 className="text-base text-gray-500 font-bold uppercase pb-1 border-b border-gray-60 mt-8">
+      <h2 className="lowkey-title">
         Blog
       </h2>
       <PostList posts={posts} />

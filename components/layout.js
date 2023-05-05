@@ -11,6 +11,6 @@ export const Layout = ({ children }) => (
 
     <Nav />
 
-    <main className="container mx-auto max-w-screen-sm my-8">{children}</main>
+    <main className="container mx-auto max-w-screen-sm">{children}</main>
   </div>
 )
