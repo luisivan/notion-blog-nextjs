@@ -12,19 +12,35 @@ const subscribe = async (url, email) => {
   try {
     const res = await fetch(`${url}/api/v1/free`, {
       method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        authority: 'thoughtcrime.substack.com',
+        origin: url,
+        referer: `${url}/embed`,
+        'user-agent':
+          'Mozilla/5.0 (Macintosh; Intel Mac OS X x.y; rv:42.0) Gecko/20100101 Firefox/42.0',
+      },
       body: JSON.stringify({
-        additional_referring_pub_ids: '',
+        email,
+        first_url: 'https://thoughtcrime.substack.com/embed',
+        first_referrer: '',
+        current_url: 'https://thoughtcrime.substack.com/embed',
         current_referrer: '',
-        current_url: `${encodeURIComponent(url)}`,
-        email: `${encodeURIComponent(email)}`,
-        first_referrer: `${encodeURIComponent('https://substack.com/')}`,
-        first_url: `${encodeURIComponent(url)}`,
         referral_code: '',
-        referring_pub_id: '',
-        source: `${encodeURIComponent('cover_page')}`,
+        source: 'embed',
       }),
     })
+    if (res.status === 400) {
+      console.log(res.statusText)
+      return
+    } else if (res.status !== 200) {
+      console.log(res.statusText)
+      return
+    }
+    console.log(res)
     console.log(`${res.status} subscribed ${email} to ${url}`)
+    const res2 = await fetch(`${url}/welcome?email=${email}`)
+    console.log(res2)
   } catch (error) {
     console.log(error)
     throw new Error(error)
@@ -40,7 +56,10 @@ const handler = async (req, res) => {
   // const { email } = req.body
 
   try {
-    await subscribe('https://thoughtcrime.substack.com', 'me+test2@luisc.xyz')
+    await subscribe(
+      'https://thoughtcrime.substack.com',
+      'nmf8zzg4c@relay.firefox.com'
+    )
   } catch (error) {
     return res.status(500).json({ error })
   }

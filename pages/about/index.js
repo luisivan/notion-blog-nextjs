@@ -22,6 +22,19 @@ export default function About({ blocks }) {
           email,
         }),
       })
+      if (res.status === 400) {
+        res.status(400).json({
+          success: false,
+          message: 'BAD_REQUEST',
+        })
+        return
+      } else if (res.status !== 200) {
+        res.status(500).json({
+          success: false,
+          message: 'UNEXPECTED_ERROR',
+        })
+        return
+      }
       const res2 = await fetch(`${url}/welcome?email=${email}`)
       console.log(`${res.status} subscribed ${email} to ${url}`)
     } catch (error) {
