@@ -4,49 +4,6 @@ import { Blocks } from '../../components/notion'
 import config from '../../config'
 
 export default function About({ blocks }) {
-  const subscribe = async (url, email) => {
-    console.log(url)
-    console.log(email)
-
-    try {
-      const res = await fetch(`${url}/api/v1/free`, {
-        method: 'POST',
-        mode: 'no-cors',
-        body: JSON.stringify({
-          first_url: `${url}/subscribe`,
-          first_referrer: '',
-          current_url: `${url}/subscribe`,
-          current_referrer: '',
-          referral_code: '',
-          source: 'subscribe_page',
-          email,
-        }),
-      })
-      if (res.status === 400) {
-        res.status(400).json({
-          success: false,
-          message: 'BAD_REQUEST',
-        })
-        return
-      } else if (res.status !== 200) {
-        res.status(500).json({
-          success: false,
-          message: 'UNEXPECTED_ERROR',
-        })
-        return
-      }
-      const res2 = await fetch(`${url}/welcome?email=${email}`)
-      console.log(`${res.status} subscribed ${email} to ${url}`)
-    } catch (error) {
-      throw new Error(error)
-    }
-  }
-
-  subscribe(
-    'https://thoughtcrime.substack.com',
-    encodeURI('licuende+test3@gmail.com')
-  )
-
   return (
     <article className="ablock">
       <BlogHead

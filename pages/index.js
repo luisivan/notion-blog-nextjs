@@ -18,9 +18,13 @@ export default function Home({ blocks, posts }) {
       <main className="ablock prose dark:prose-invert prose-xl font-display">
         <Blocks blocks={blocks} />
       </main>
-      <div className="ablock h-24">
+      <div className="ablock">
+        <h2 className="lowkey-title mb-2">newsletter</h2>
         {config.substackUsername ? (
-          <Subscribe substackUsername={config.substackUsername} />
+          <Subscribe
+            substackUsername={config.substackUsername}
+            className="flex text-2xl"
+          />
         ) : (
           ''
         )}

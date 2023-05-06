@@ -5,17 +5,14 @@ import config from '../../config'
 
 export default function Category({ name, posts }) {
   return (
-    <div>
+    <div className="ablock">
       <BlogHead
         title={`${config.name} | ${name}`}
         description={config.description}
         image={config.defaultPostImage}
         type="website"
       />
-
-      <h2 className="text-base text-gray-500 font-bold uppercase pb-1 border-b border-gray-60 mt-8">
-        {name}
-      </h2>
+      <h2 className="lowkey-title">{name}</h2>
       <PostList posts={posts} />
     </div>
   )

@@ -20,7 +20,7 @@ export default function Post({ post }) {
           type="article"
         />
 
-        <div className="text-xs text-gray-500 dark:text-gray-300">
+        <div className="text-xs text-gray-500 dark:text-gray-300 mt-2">
           {post.date}
         </div>
         <h1 className="text-3xl xs:text-5xl font-semibold font-display leading-snug text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-400 dark:from-indigo-400 dark:to-blue-200 -mb-4">
@@ -31,16 +31,20 @@ export default function Post({ post }) {
           <Blocks blocks={post.blocks} />
         </section>
       </article>
-      <div className="ablock flex justify-between gap-x-4 flex-col-reverse sm:flex-row">
+      <div className="ablock flex gap-x-4 flex-col-reverse xs:flex-row lowercase">
         {config.substackUsername ? (
-          <Subscribe substackUsername={config.substackUsername} />
+          <Subscribe
+            substackUsername={config.substackUsername}
+            className="text-xl flex xs:block h-12"
+            showButtonOnType={true}
+          />
         ) : (
           ''
         )}
-        <div className="flex flex-grow sm:justify-end justify-between mb-8 sm:mb-0 flex-wrap items-center">
+        <div className="flex flex-1 grow xs:justify-end justify-between mb-4 xs:mb-0 flex-wrap items-center">
           <Link
             href={`/category/${post.category.toLowerCase()}`}
-            className="sm:border-r border-r-0 border-gray-300 pr-4 text-blue-400"
+            className="pr-4 text-blue-400"
           >
             {post.category}
           </Link>

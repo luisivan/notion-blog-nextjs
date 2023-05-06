@@ -2,11 +2,11 @@
 @tailwind components;
 
 @layer base {
-  a {
+  a, button {
     @apply transition-opacity;
   }
 
-  a:hover {
+  a:hover, button:hover {
     @apply opacity-75;
   }
 }

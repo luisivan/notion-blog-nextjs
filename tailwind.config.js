@@ -24,7 +24,7 @@ module.exports = {
       display: ['Inter'],
     },
     screens: {
-      xs: '420px',
+      xs: '480px',
       sm: '640px',
     },
   },
