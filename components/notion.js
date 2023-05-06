@@ -105,7 +105,8 @@ const renderBlock = (block) => {
         <Image
           {...value}
           placeholder="blur"
-          sizes="100vw" style={{ width: '100%', height: 'auto' }}
+          sizes="100vw"
+          style={{ width: '100%', height: 'auto' }}
           alt=""
           className="w-full"
         />
@@ -138,7 +139,7 @@ const renderBlock = (block) => {
 
 export const Blocks = ({ blocks }) => {
   return (
-    <div>
+    <div className="-my-2">
       {blocks.map((block) => (
         <Fragment key={block.id}>{renderBlock(block)}</Fragment>
       ))}

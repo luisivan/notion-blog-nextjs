@@ -15,20 +15,18 @@ export default function Home({ blocks, posts }) {
         type="website"
       />
 
-      <main className="block prose prose-xl font-display">
+      <main className="ablock prose dark:prose-invert prose-xl font-display">
         <Blocks blocks={blocks} />
       </main>
-      <div className="block h-24">
+      <div className="ablock h-24">
         {config.substackUsername ? (
           <Subscribe substackUsername={config.substackUsername} />
         ) : (
           ''
         )}
       </div>
-      <div className="block">
-        <h2 className="lowkey-title">
-          Featured writing
-        </h2>
+      <div className="ablock">
+        <h2 className="lowkey-title">Featured writing</h2>
         <PostList posts={posts} />
       </div>
     </div>

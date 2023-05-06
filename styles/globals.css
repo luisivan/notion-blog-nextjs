@@ -12,16 +12,16 @@
 }
 
 @layer components {
-  .block {
-    @apply font-display text-sm border-2 rounded-xl my-4 px-6 py-4;
+  .ablock {
+    @apply font-display text-sm border-y-2 xs:border-2 xs:rounded-xl my-4 px-6 py-4;
   }
 
-  .block.prose {
+  .ablock.prose {
     @apply py-0;
   }
 
   .lowkey-title {
-    @apply text-base text-gray-500 font-bold border-b border-gray-300 lowercase;
+    @apply text-base text-gray-500 dark:text-gray-200 font-bold border-b border-gray-300 lowercase;
   }
 }
 

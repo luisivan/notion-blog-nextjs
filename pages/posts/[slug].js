@@ -12,7 +12,7 @@ export default function Post({ post }) {
   console.log(config.substackUsername)
   return (
     <div>
-      <article className="block">
+      <article className="ablock">
         <BlogHead
           title={`${post.title} | ${config.name}`}
           description={post.summary}
@@ -20,16 +20,18 @@ export default function Post({ post }) {
           type="article"
         />
 
-        <div className="text-xs text-gray-500">{post.date}</div>
-        <h1 className="text-5xl font-semibold font-display leading-snug text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-400 -mb-4">
+        <div className="text-xs text-gray-500 dark:text-gray-300">
+          {post.date}
+        </div>
+        <h1 className="text-3xl xs:text-5xl font-semibold font-display leading-snug text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-400 dark:from-indigo-400 dark:to-blue-200 -mb-4">
           {post.title}
         </h1>
 
-        <section className="prose prose-lg prose-blue -mb-4">
+        <section className="prose dark:prose-invert prose-lg -mb-4">
           <Blocks blocks={post.blocks} />
         </section>
       </article>
-      <div className="block flex justify-between gap-x-4 flex-col-reverse sm:flex-row">
+      <div className="ablock flex justify-between gap-x-4 flex-col-reverse sm:flex-row">
         {config.substackUsername ? (
           <Subscribe substackUsername={config.substackUsername} />
         ) : (

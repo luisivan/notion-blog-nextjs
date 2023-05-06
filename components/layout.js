@@ -3,7 +3,7 @@ import config from '../config'
 import { Nav } from './nav'
 
 export const Layout = ({ children }) => (
-  <div className="px-4">
+  <div className="px-0 xs:px-4">
     <Head>
       <link rel="icon" href="/favicon.ico" />
       <meta property="og:site_name" content={config.name} />

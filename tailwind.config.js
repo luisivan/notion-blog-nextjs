@@ -1,6 +1,6 @@
 module.exports = {
   purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: 'media',
   theme: {
     extend: {
       typography: {
@@ -22,6 +22,10 @@ module.exports = {
     },
     fontFamily: {
       display: ['Inter'],
+    },
+    screens: {
+      xs: '420px',
+      sm: '640px',
     },
   },
   variants: {

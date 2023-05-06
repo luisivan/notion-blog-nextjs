@@ -23,7 +23,7 @@ class BlogDocument extends Document {
             src="https://cdn.splitbee.io/sb.js"
           ></script>
         </Head>
-        <body>
+        <body className={this.props.theme}>
           <Main />
           <NextScript />
         </body>
