@@ -16,6 +16,7 @@ export const Bookmark = ({ title, description, icon, image, url }) => (
           width={16}
           height={16}
           style={{ margin: 0 }}
+          alt={`Icon from ${url}`}
         />
         <span className="text-xs text-gray-600 no-underline ml-2 whitespace-nowrap text-ellipsis overflow-hidden">
           {url}
