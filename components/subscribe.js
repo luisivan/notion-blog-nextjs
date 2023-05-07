@@ -33,7 +33,11 @@ export const Subscribe = ({
         onKeyDown={(e) => e.key === 'Enter' && subscribe()}
       />
       {(!showButtonOnType || (showButtonOnType && email)) && (
-        <button className="shrink rounded-full pl-2" onClick={subscribe}>
+        <button
+          className="shrink rounded-full pl-2"
+          onClick={subscribe}
+          aria-label="Subscribe"
+        >
           {{
             loading: <IconSandClock className="animate-spin" />,
             yes: (

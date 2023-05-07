@@ -13,7 +13,7 @@ export const Nav = () => (
     <nav className="flex justify-between items-center gap-6">
       <Link href="/blog">Posts</Link>
       <Link href="/about">About</Link>
-      <Link href={`https://twitter.com/${config.twitter}`}>
+      <Link href={`https://twitter.com/${config.twitter}`} aria-label="Twitter">
         <IconTwitter className="text-sky-500" />
       </Link>
     </nav>
