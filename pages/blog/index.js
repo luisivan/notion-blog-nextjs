@@ -1,21 +1,25 @@
 import { getDatabase, formatPosts } from '../../lib/notion'
 import BlogHead from '../../components/head'
 import { PostList } from '../../components/list'
+import { SubscribeBlock } from '../../components/subscribe'
 import config from '../../config'
 
 export default function Blog({ posts }) {
   return (
-    <div className="ablock">
-      <BlogHead
-        title={`${config.name} | Blog`}
-        description={config.description}
-        image={config.defaultPostImage}
-        type="website"
-      />
+    <>
+      <div className="ablock">
+        <BlogHead
+          title={`${config.name} | Blog`}
+          description={config.description}
+          image={config.defaultPostImage}
+          type="website"
+        />
 
-      <h2 className="lowkey-title">Blog</h2>
-      <PostList posts={posts} />
-    </div>
+        <h2 className="lowkey-title">Blog</h2>
+        <PostList posts={posts} />
+      </div>
+      <SubscribeBlock substackUsername={config.substackUsername} />
+    </>
   )
 }
 

@@ -2,7 +2,7 @@ import { getPage, getBlocks, getFeatured, formatPosts } from '../lib/notion'
 import BlogHead from '../components/head'
 import { PostList } from '../components/list'
 import { Blocks } from '../components/notion'
-import { Subscribe } from '../components/subscribe'
+import { SubscribeBlock } from '../components/subscribe'
 import config from '../config'
 
 export default function Home({ blocks, posts }) {
@@ -18,17 +18,7 @@ export default function Home({ blocks, posts }) {
       <main className="ablock prose dark:prose-invert prose-xl font-display">
         <Blocks blocks={blocks} />
       </main>
-      <div className="ablock">
-        <h2 className="lowkey-title mb-2">newsletter</h2>
-        {config.substackUsername ? (
-          <Subscribe
-            substackUsername={config.substackUsername}
-            className="flex text-2xl"
-          />
-        ) : (
-          ''
-        )}
-      </div>
+      <SubscribeBlock substackUsername={config.substackUsername} />
       <div className="ablock">
         <h2 className="lowkey-title">Featured writing</h2>
         <PostList posts={posts} />

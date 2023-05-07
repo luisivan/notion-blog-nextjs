@@ -7,9 +7,8 @@ import config from '../../config'
 
 export default function Post({ post }) {
   if (!post) {
-    return <div />
+    return <></>
   }
-  console.log(config.substackUsername)
   return (
     <div>
       <article className="ablock">
@@ -32,15 +31,11 @@ export default function Post({ post }) {
         </section>
       </article>
       <div className="ablock flex gap-x-4 flex-col-reverse xs:flex-row lowercase">
-        {config.substackUsername ? (
-          <Subscribe
-            substackUsername={config.substackUsername}
-            className="text-xl flex xs:block h-12"
-            showButtonOnType={true}
-          />
-        ) : (
-          ''
-        )}
+        <Subscribe
+          substackUsername={config.substackUsername}
+          className="text-xl flex flex-row content-center"
+          showButtonOnType={true}
+        />
         <div className="flex flex-1 grow xs:justify-end justify-between mb-4 xs:mb-0 flex-wrap items-center">
           <Link
             href={`/category/${post.category.toLowerCase()}`}

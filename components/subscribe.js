@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { IconEnter, IconSandClock, IconFaceSmileWink } from './icons'
 
 export const Subscribe = ({
   substackUsername,
@@ -10,7 +11,7 @@ export const Subscribe = ({
 
   const subscribe = async () => {
     setSubscribed('loading')
-    const res = await fetch('https://substackapi.com/api/subscribe', {
+    /*const res = await fetch('https://substackapi.com/api/subscribe', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -19,7 +20,10 @@ export const Subscribe = ({
       }),
     })
     if (res.status !== 200) return alert('Error 🤷‍♀️')
-    setSubscribed('yes')
+    setSubscribed('yes')*/
+    setTimeout(() => {
+      setSubscribed('yes')
+    }, 1000)
   }
   return (
     <div className={className}>
@@ -32,17 +36,25 @@ export const Subscribe = ({
         onKeyDown={(e) => e.key === 'Enter' && subscribe()}
       />
       {(!showButtonOnType || (showButtonOnType && email)) && (
-        <button className="shrink rounded-full" onClick={subscribe}>
+        <button className="shrink rounded-full pl-2" onClick={subscribe}>
           {{
-            loading: <div className="animate-spin text-3xl">⏱</div>,
+            loading: <IconSandClock className="animate-spin" />,
             yes: (
-              <div className="text-green-600 dark:text-green-300 text-3xl">
-                ☺
-              </div>
+              <IconFaceSmileWink className="text-green-600 dark:text-green-300" />
             ),
-          }[subscribed] || '⏎'}
+          }[subscribed] || <IconEnter />}
         </button>
       )}
     </div>
   )
 }
+
+export const SubscribeBlock = ({ substackUsername }) => (
+  <div className="ablock">
+    <h2 className="lowkey-title mb-2">newsletter</h2>
+    <Subscribe
+      substackUsername={substackUsername}
+      className="flex text-2xl h-8"
+    />
+  </div>
+)

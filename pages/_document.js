@@ -5,10 +5,6 @@ class BlogDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
-          />
           <link rel="alternate" type="application/rss+xml" href="/rss.xml" />
           <link rel="alternate" type="application/atom+xml" href="/atom.xml" />
           <link

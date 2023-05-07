@@ -21,7 +21,7 @@ module.exports = {
       },
     },
     fontFamily: {
-      display: ['Inter'],
+      display: ['var(--font-inter)'],
     },
     screens: {
       xs: '480px',
