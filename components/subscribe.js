@@ -11,7 +11,7 @@ export const Subscribe = ({
 
   const subscribe = async () => {
     setSubscribed('loading')
-    /*const res = await fetch('https://substackapi.com/api/subscribe', {
+    const res = await fetch('https://substackapi.com/api/subscribe', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -20,10 +20,7 @@ export const Subscribe = ({
       }),
     })
     if (res.status !== 200) return alert('Error 🤷‍♀️')
-    setSubscribed('yes')*/
-    setTimeout(() => {
-      setSubscribed('yes')
-    }, 1000)
+    setSubscribed('yes')
   }
   return (
     <div className={className}>
