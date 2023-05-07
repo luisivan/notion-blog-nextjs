@@ -26,11 +26,10 @@
 }
 
 .prose li {
-  list-style: none;
-  padding-left: 0.75em;
+  @apply ml-4 list-none;
 }
 
 .prose li::before {
   content: "• ";
-  margin-left: -0.75em;
+  @apply w-1 -ml-4;
 }
