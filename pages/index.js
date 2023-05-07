@@ -20,7 +20,7 @@ export default function Home({ blocks, posts }) {
       </main>
       <SubscribeBlock substackUsername={config.substackUsername} />
       <div className="ablock">
-        <h2 className="lowkey-title">Featured writing</h2>
+        <h2 className="lowkey-title">Featured posts</h2>
         <PostList posts={posts} />
       </div>
     </div>

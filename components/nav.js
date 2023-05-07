@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import config from '../config'
-import logo from '../public/logo.jpg'
+import { IconTwitter } from './icons'
 
 export const Nav = () => (
   <header className="container mx-auto max-w-screen-sm flex justify-between  ablock lowercase">
@@ -11,9 +11,11 @@ export const Nav = () => (
       </h1>
     </Link>
     <nav className="flex justify-between items-center gap-6">
-      <Link href="/blog">Blog</Link>
-      <Link href={`https://twitter.com/${config.twitter}`}>Twitter</Link>
+      <Link href="/blog">Posts</Link>
       <Link href="/about">About</Link>
+      <Link href={`https://twitter.com/${config.twitter}`}>
+        <IconTwitter className="text-sky-500" />
+      </Link>
     </nav>
   </header>
 )
