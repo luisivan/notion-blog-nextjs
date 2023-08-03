@@ -7,7 +7,7 @@ export const Nav = () => (
   <header className="container mx-auto max-w-screen-sm flex justify-between  ablock lowercase">
     <Link href="/" className="flex items-center" passHref>
       <h1 className="text-sm md:text-xl bg-clip-text">
-        {config.emoji} {config.name}
+        {config.name} {config.emoji}
       </h1>
     </Link>
     <nav className="flex justify-between items-center gap-6">
