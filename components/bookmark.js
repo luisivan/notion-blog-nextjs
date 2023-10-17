@@ -4,7 +4,7 @@ export const Bookmark = ({ title, description, icon, image, url }) => (
     className="flex flex-row border border-solid border-gray-200 mt-4 mb-8"
   >
     <div className="basis-3/4 whitespace-nowrap text-ellipsis overflow-hidden p-4">
-      <div className="text-sm text-gray-800 mb-2 whitespace-nowrap text-ellipsis overflow-hidden">
+      <div className="text-sm text-gray-800 dark:text-white mb-2 whitespace-nowrap text-ellipsis overflow-hidden">
         {title}
       </div>
       <div className="text-xs text-gray-400 mb-2 whitespace-nowrap text-ellipsis overflow-hidden">
@@ -18,7 +18,7 @@ export const Bookmark = ({ title, description, icon, image, url }) => (
           style={{ margin: 0 }}
           alt={`Icon from ${url}`}
         />
-        <span className="text-xs text-gray-600 no-underline ml-2 whitespace-nowrap text-ellipsis overflow-hidden">
+        <span className="text-xs text-gray-600 dark:text-white no-underline ml-2 whitespace-nowrap text-ellipsis overflow-hidden">
           {url}
         </span>
       </div>
