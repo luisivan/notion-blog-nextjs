@@ -8,7 +8,7 @@ const config = {
   aboutPageId: '9ed926b0566d46dcac5813de5af19dd8',
   defaultPostImage: '/logo.jpg',
   substackUsername: 'thoughtcrime',
-  url: 'https://luisc.xyz',
+  url: 'https://luis.com',
 }
 
 config.defaultPostImage = new URL(config.defaultPostImage, config.url).href
