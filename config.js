@@ -1,5 +1,5 @@
 const config = {
-  emoji: '☯︎✧',
+  emoji: '✧',
   name: 'Luis Cuende',
   description:
     'Musings about modern philosophy, productivity and unbundling the nation state with crypto/Web3.',
