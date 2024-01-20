@@ -14,9 +14,9 @@ class BlogDocument extends Document {
           />
           <meta name="theme-color" content="#5D93FF" />
           <script
-            data-respect-dnt
-            defer
-            src="https://cdn.splitbee.io/sb.js"
+            data-goatcounter="https://luisc.goatcounter.com/count"
+            async
+            src="//gc.zgo.at/count.js"
           ></script>
         </Head>
         <body className={this.props.theme}>
